@@ -1,0 +1,9 @@
+pdf/*.pdf
+png/*.png
+calc
+WWKS22.pdf
+*.aux
+*.bbl
+*.blg
+*.log
+*.out

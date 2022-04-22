@@ -1,0 +1,15 @@
+# Velocity data from the Gran Canary Island, digitized from
+# Krastel & Schminke, 2002, Fig 4 (Island 1-D model)
+# Depth from top of island
+# Vp Depth
+4.4	0
+4.4	1.939
+4.62	1.94
+4.58	3.88
+4.92	3.95
+4.92	5.92
+5.37	5.99
+5.35	7.86
+5.64	7.93
+5.66	9.98
+5.84	9.99

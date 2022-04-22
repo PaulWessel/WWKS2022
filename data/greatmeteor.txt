@@ -1,0 +1,20 @@
+# Velocity data from Great Meteor Seamount, digitized from
+# Wiegel and Grevemeyer, 1999, Fig 4a
+# Depth from top of island
+# Vp Depth
+3.11	0
+3.45	0.26
+3.74	0.59
+4.05	0.95
+4.28	1.23
+4.51	1.49
+4.75	1.78
+4.96	2.02
+5.22	2.31
+5.49	2.64
+5.74	2.9
+5.92	3.1
+6.03	3.47
+6.19	4
+6.33	4.46
+6.5	4.99

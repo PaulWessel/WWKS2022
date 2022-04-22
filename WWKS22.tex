@@ -1,0 +1,73 @@
+% Wessel, P., Watts, A. B., Kim, S.-S., and Sandwell, D. T., 2022
+%   Models for the Evolution of Seamount, Geophys. J. Int.
+%
+\documentclass[extra,mreferee]{gji}
+\usepackage[utf8]{inputenc}
+\usepackage{timet}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[longend,linesnumbered,ruled]{algorithm2e}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[pdftex,colorlinks=true]{hyperref}
+\usepackage{doi}
+
+% Add line numbers
+\usepackage{lineno}
+\linenumbers
+
+% Import packages useful for creating the parameters tables
+%\usepackage{multirow}
+%\usepackage{booktabs}
+%\usepackage{setspace}
+
+% Import variables
+\input{WWKS22_variables.tex}
+
+% Define style for urls
+\urlstyle{same}
+\hypersetup{
+    allcolors=blue,
+    pdftitle={\Title},
+}
+
+% Define title, authors, affiliations and DOI
+% ===========================================
+\title{\Title}
+\author[\WesselShort{}, \WattsShort{}, \KimShort{} and \SandwellShort{}]{
+    \Wessel$^{1}$, \Watts$^{2}$, \Kim$^{3}$ and \Sandwell$^{4}$ \\
+    $^{1}$\SOEST (\WesselMail) \\
+    $^{2}$\OXFORD \\
+    $^{3}$\CHUNGNAM \\
+    $^{4}$\UCSD \\
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+
+\begin{summary}
+    \input{WWKS22_abstract}
+\end{summary}
+
+\begin{keywords}
+    \keywordsGJI{}
+\end{keywords}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{WWKS22_content.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{gji}
+\bibliography{WKWS22_refs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{WWKS22_appendix.tex}
+
+\end{document}

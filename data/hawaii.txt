@@ -1,0 +1,26 @@
+# Velocity data from Hawaii, digitized from
+# Depth from top of island
+# Vp Depth
+#> Digitized from Evangelidis et al, 2005, Fig 10a
+#3.17	0
+#4.44	5.06
+#6	5.09
+#6.49	7.52
+#> Digitized from ten Brink & Brocher, 1987]
+3.72	0
+3.99	0.51
+4.26	1.21
+4.29	3.29
+4.89	3.56
+5.28	3.62
+5.31	4.83
+5.68	5.07
+5.83	6.85
+6.4	6.89
+6.43	7.91
+6.58	8.49
+6.97	8.491
+7	10.18
+7	11.84
+7.16	11.87
+7.4	15.13

@@ -1,0 +1,118 @@
+% Wessel, P., Watts, A. B., Kim, S.-S., and Sandwell, D. T., 2022
+%   Models for the Evolution of Seamount, Geophys. J. Int.
+%
+
+\appendix
+
+\section{Flank volumes for different seamount shapes}
+\label{app1}
+
+In order to use Pappas' theorem for computing the flank volume $V_f = 2 \pi \bar{r}_f A_f$ we need
+analytical solutions for the various areas and centroid distances, which depend on the seamount
+shape model.  The superscripts below refer to the shape used ($w = c$, $p$, $g$, or $o$). Here,
+we redefine $u = r/r_0$ so $r = r_0 u$ and $dr = r_0 du$.  Integrations still go from $u_2$
+to $u_1$.  Thus, $\bar{r}_f = r_0 \bar{u}_f$ and we scale the nondimensional areas $M$
+by the product of $r_0$ and the relevant height factor (which differs for each shape) to get actual
+areas. We note that in all cases, the slide escarpment will start beyond the truncated surface, i.e.,
+$r_2 \ge r_f$, hence we avoid any complications with $h(r$) being horizontal within the range of the slide.
+
+\subsection{Conic Seamounts (c)}
+
+For conic seamounts we use normalized height $y(u) = 1 - u$. Then
+\begin{equation*}
+M^c = \int_{u_2}^{u_1} y(u) du = u_1 - u_2 - \frac{1}{2}\left ( u_1^2 - u_2^2 \right ),
+\end{equation*}
+\begin{equation*}
+\bar{u}_f^c = \frac{\int_{u_2}^{u_1} y(u) u du}{M^c} = \frac{3(u_1^2 - u_2^2) - 2 (u_1^3 - u_2^3)}{6M^c},
+\end{equation*}
+and we obtain
+\begin{equation}
+A_f^c = \frac{h_0 r_0}{1-f}M^c, \quad r_f^c = r_0\bar{u}_f^c.
+\end{equation}
+
+\subsection{Parabolic Seamounts (p)}
+
+For parabolic seamounts we use normalized height $y(u) = 1 - u^2$. Then
+\begin{equation*}
+M^p = \int_{u_2}^{u_1} y(u) du = u_1 - u_2 - \frac{1}{3}\left ( u_1^3 - u_2^3 \right ),
+\end{equation*}
+\begin{equation*}
+\bar{u}_f^p = \frac{\int_{u_2}^{u_1} y(u) u du}{M^p} = \frac{2(u_1^2 - u_2^2) - (u_1^4 - u_2^4)}{4M^p},
+\end{equation*}
+yielding
+\begin{equation}
+A_f^p = \frac{h_0 r_0}{1-f^2}M^p, \quad r_f^p = r_0\bar{u}_f^p.
+\end{equation}
+
+\subsection{Gaussian Seamounts (g)}
+
+For Gaussian seamounts we use normalized height $y(u) = e^{-\frac{9}{2}u^2}$. Then
+
+\begin{equation*}
+M^g = \int_{u_2}^{u_1} y(u) du = \frac{\sqrt{2\pi}}{6} \left [ \mbox{erf} \left (\frac{3\sqrt{2}}{2}u_1\right ) - \mbox{erf} \left (\frac{3\sqrt{2}}{2}u_2\right ) \right ],
+\end{equation*}
+\begin{equation*}
+\bar{u}_f^g = \frac{\int_{u_2}^{u_1} y(u) u du}{M^g} = \frac{e^{-\frac{9}{2}u_2^2} - e^{-\frac{9}{2}u_1^2}}{9M^g},
+\end{equation*}
+\begin{equation}
+A_f^g = h_0 r_0 e^{\frac{9}{2}f^2} M^g, \quad r_f^g = r_0\bar{u}_f^g.
+\end{equation}
+
+\subsection{Polynomial Seamounts (o)}
+
+For polynomial seamounts we use the normalized height
+\begin{equation*}
+y(u) = \frac{(1 + u)^3 (1 - u)^3}{1 + u^3}.
+\end{equation*}
+Then,
+\begin{equation*}
+M^o = \int_{u_2}^{u_1} y(u) du = u_1 - u_2 + \frac{3}{2}\left (u_1^2 - u_2^2 \right ) - \frac{1}{4} \left (u_1^4 - u_2^4\right ) - L - T,
+\end{equation*}
+\begin{equation*}
+\bar{u}_f^o = \frac{\int_{u_2}^{u_1} y(u) u du}{M^o} = \frac{- 3 (u_1 - u_2) + \frac{1}{2}(u_1^2 - u_2^2) + (u_1^3 - u_2^3) - \frac{1}{5}(u_1^5 - u_2^5) - L + T}{M^o},
+\end{equation*}
+where 
+\begin{equation*}
+L = \frac{3}{2} \ln \left ( \frac{u_1^2 - u_1 + 1}{u_2^2 - u_2 + 1}\right ), \quad T = \sqrt{3} \left [ \tan^{-1} \left (\frac{\sqrt{3}}{3}(2u_1 - 1)\right ) - \tan^{-1} \left (\frac{\sqrt{3}}{3}(2u_2 - 1)\right )\right ].
+\end{equation*}
+Hence,
+\begin{equation}
+A_f^o = \frac{h_0 r_0}{v(f)} M^o, \quad r_f^o = r_0\bar{u}_f^o.
+\end{equation}
+
+\subsection{Special situations}
+
+The radial slide function $q(u)$ can, for $u_0 \rightarrow \infty$ get close to a straight line
+and thus is a perfect initial starting shape for a slide off a conic seamount.  However, other
+seamount shapes are not linear over the range where the slide occurs, and hence there is a nonzero
+volume between the limiting straight $q(u)$ curve and the undeformed seamount flank $h(r)$;
+we call this volume $V_m^w$ as it is a function of the chosen seamount shape $w$. The
+surplus or deficit volume is
+\begin{equation*}
+V_m^w = V_f^w - V_f^c.
+\end{equation*}
+By examining if the shapes of these seamounts are convex or concave we see that $V_m^p > 0$, $V_m^c = 0$,
+and both $V_m^g < 0$ and $V_m^o < 0$. These observations point to two special cases:
+
+\begin{enumerate}
+  \item For the parabolic shape, even $u_0 = \infty$ (no slide yet) will still produce a slide volume
+  $V_s$ via (\ref{eq:Vs}) since the (linear) curve $q(u$) is below the concave flank.  This means we
+  cannot model small slides beneath the $V_m^p$ limit using our $q(u)$ model. Instead, let
+  $\eta = V_s(t)/V_m^p$, and until $\eta$ exceeds unity we move $h_s(r)$ \emph{outward} towards $h(r)$ via
+  \begin{equation*}
+  h_s(r) = h_c(r) + \eta \left [h(r) - h_c(r) \right ],
+  \end{equation*}
+  where $h_c(r)$ is the straight line between $(r_1, h_1)$ and $(r_2, h_2)$.  This will let us effectively
+  carve out those smaller volumes that otherwise cannot be done via $q(u)$.
+  \item For the two shapes with volume deficits, initially large values of $u_0$ will not actually
+  result in any slide volume $V_s$ since the curve $q(u$) is still outside the flank. This means $u_0$
+  has to decrease to a certain level before we get a positive slide volume. Consequently, there is a
+  finite upper limit on $u_0$ value that we cannot exceed for those two shapes in situations where
+  we wish to prescribe a specific $u_0$.
+\end{enumerate}
+
+\section{Acknowledgements}
+This work was supported by US National Science Foundation grant xxyyyyy and a Leverhulme Visiting
+Professorship to P.W. S.-S.K. acknowledges support from the National Research Foundation of Korea
+(NRF-2021R1A2C1012030) and the Korea government (MOF 19992001).
+This is SOEST publication no. xxxx.

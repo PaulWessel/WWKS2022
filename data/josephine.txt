@@ -1,0 +1,8 @@
+# Velocity data from the Josephine Seamount
+# Pierce and Barton, 1991 via Mitchell, 2001
+# Depth from top of seamount
+# Vp Depth
+3.16	0
+3.91	1.19
+4.18	1.1901
+6.18	6
