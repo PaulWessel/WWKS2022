@@ -17,7 +17,7 @@ mapping by research vessels have to date only identified a few thousand of them,
 characterization one of the last major frontiers in the Ocean sciences. In contrast, the ever-improving
 quality and coverage of the Earth's gravitational field by
 satellite altimetry \citep[e.g.,~][]{Setal2021}, from which seafloor relief may be approximated
-\citep{SS1997}, has resulting in numerous studies refining the global seamount population and adding several
+\citep{SS1997}, has inspired numerous studies to refine the global seamount population and add several
 tens of thousand seamounts to a growing data base \citep{CS1988,WL1997,W2001,KL2004,KW2011,G2022}. 
 
 \begin{figure}[h]
@@ -49,16 +49,16 @@ seamount shapes in some details: Gaussian, polynomial, conic and parabolic.  All
 into the global extrusive magma budget and its spatial distribution require seamount volumes and basal areas \citep[e.g.,~][]{B1982},
 we are interested in developing expressions for their volumes, seafloor area coverage, and average heights
 as functions of important morphological parameters such as flatness, basal radius, height, and ellipticity.
-Simple seamount models may also assist scientist when analyzing limited observations of seamounts, such as a single
+Simple seamount models may also assist scientists when analyzing limited observations of seamounts, such as a single
 ship track with a single beam echo sounder crossing of it, and requiring an estimate of its volume \citep[e.g.,~][]{HW2007}. 
-Furthermore, seamounts serve as loads in isostatic studies and so it is important to define their internal
+Furthermore, seamounts serve as loads in isostatic studies and so it is important to approximate their internal
 density structure, especially when comparing the calculated surfaces of flexure with seismic observations \citep[e.g.,~][]{W2021}.
 
-In the following, the relationship between the height of the seamount as a function of radial distance from
+In the following, the height of the seamount as a function of radial distance from
 its center, $r$, will be denoted $h(r)$. Because there is often extraneous seafloor structure near the base
 (such as abyssal hills, fracture zones, or mass-wasting products from large-scale sector collapses, slump blocks
 and debris flow deposits) complicating the identification of a unique basal contour, and because there may be uncertainties
-related to a regional-residual separation \citep[e.g.,~][]{W2016}, we are concerned with measuring areas and volumes
+related to the regional-residual separation \citep[e.g.,~][]{W2016}, we are concerned with measuring areas and volumes
 above a prescribed noise floor.  Depending on the chosen seamount geometry, we obtain separate equations for areas,
 volumes, and mean heights.  Moreover, to simulate the evolution of seamounts we may need to evolve them over a
 specified life span, and hence the increments in volume between each time step will be needed. Because growth
@@ -68,16 +68,16 @@ and assign vertically-averaged density contrasts to each increment.
 
 \section{General Seamount Models}
 \label{sec:shape}
-Below we consider both circular and elliptical seamounts.  Because the volumes of these are proportional
+Below, we will consider both circular and elliptical seamounts.  Because the volumes of these features are proportional
 to their basal areas, it is convenient to introduce a representative radius so we do not have to give
 separate equations for circular and elliptical seamounts.  While for circular seamounts the representative
 radius is simply the basal radius $r_0$, for the elliptical case with semi-major and semi-minor axes
 $a_0$ and $b_0$, respectively, the representative radius will be their geometric mean, $r_0 = \sqrt{a_0 b_0}$.
 We will further assume that bathymetric ``noise'' (or gravimetric noise if modeling free-air or vertical gravity
 gradient anomalies \citep[e.g.,~][]{WL1997,W2001,KW2011}) prevents a basal zero-contour from being uniquely identified,
-forcing us to instead track a slightly higher contour level to escape the noise floor: we label that contour
-$h_n$.  Finally many, but not all seamounts are wave-trimmed at sea level to become guyots and have
-a flat top area of radius $r_f < r_0$.  Introducing the flattening $f = r_f/r_0$ we can derive general expressions
+forcing us to track a slightly higher contour level to escape the noise floor: we label that contour
+$h_n$.  Finally many, but not all seamounts are wave-trimmed at sea level to become guyots with
+a flat top area of radius $r_f < r_0$.  Introducing the flattening $f = r_f/r_0$, we can derive general expressions
 that consider these various complications.
 
 \subsection{Conical Seamount}
@@ -178,16 +178,16 @@ $r_0$, but subject to a noise floor at $h_n$.  Truncation yields a top radius of
 \label{WWKS22_Fig_Gaussian}
 \end{figure}
 
-For an untruncated Gaussian seamount (dashed line in Fig. \ref{WWKS22_Fig_Gaussian}), we will parameterize it to have
+For an untruncated Gaussian seamount (dashed line in Fig. \ref{WWKS22_Fig_Gaussian}), we parameterize it to have
 a basal radius $r_0$ that equates to $3\sigma$; thus the height follows
 \begin{equation*}
 h(r) = h_0 e^{-\frac{9}{2} \left (\frac{r}{r_0} \right)^2}.
 \end{equation*}
-Unlike the previous expressions, the Gaussian does not ever reach zero for large radii, hence our decision to
+Unlike the previous expressions, the Gaussian never reaches zero for large radii, hence our decision to
 truncate the expressions at $\pm3\sigma$ means we are ignoring a very small ($<1$\%) part of the seamount.
 In the general case of a truncated Gaussian seamount, we need our $h(r)$ expression to have a similar
-shape until we reach the truncated radius, $r_f$, where the height should be $h_0$. We see that
-by evaluating $h(r_f)$ we obtain the required scaling term of $e^{\frac{9}{2}f^2}$.
+shape until we reach the truncated radius, $r_f$, where the height should equal $h_0$.
+By evaluating $h(r_f)$, we obtain the required scaling term of $e^{\frac{9}{2}f^2}$.
 Hence, our general expression for the height of a truncated Gaussian seamount (Fig.~\ref{WWKS22_Fig_Gaussian}) becomes
 \begin{equation*}
 h(r) = \left \{ \begin{array}{cl}
@@ -258,7 +258,7 @@ h(r) = \left \{ \begin{array}{cl}
 Unlike the previous seamount shapes, the polynomial model has no analytic solution for the noise-floor
 radius satisfying $h(r_n) = h_n$.  Instead, we numerically solve this equality for $r_n$, which
 trivially yields a seafloor area of $A_o = \pi r_n^2$.
-As in the Gaussian case, we must integrate $p(u)$ over suitable limits to find the volume $V_1$.
+As in the Gaussian case, we must integrate $p(u)$ over suitable limits to find the volume.
 The complete axisymmetric volume integral of $p(u)$ is analytical and was symbolically obtained
 in MATLAB to be
 \begin{equation*}
@@ -316,9 +316,10 @@ For a given load and hence load volume, different seamount shape models will req
 $r_0$ depending on $I_1$.  For instance, a parabolic approximation will require a seamount radius that is 2/3
 of that required for a Gaussian seamount of same volume and height, or $\sim 3/4$ of that if a fixed slope rather
 than height is to be maintained. For a fixed elastic thickness these load shapes will result in different deflections,
-even though the flexural response is dominated by the first moment or the load \citep{M1981}.
+even though the flexural response is dominated by the first moment of the load \citep{M1981}.
 
 \section{Evolution of Seamount Shapes}
+\label{sec:evol}
 \begin{figure}[h]
 \centering
 \includegraphics[width=9cm]{pdf/WWKS22_Fig_flux.pdf}
@@ -356,7 +357,7 @@ v(t) = \int_{t_0}^t q(t')dt' = \left \{ \begin{array}{cl}
 \end{array} \right ..
 \label{eq:flux}
 \end{equation}
-Because for the Gaussian flux model, $v(t_0)$ is not quite 0 and $v(t_1)$ is not quite 1 we simply transform
+In the Gaussian flux model, $v(t_0)$ is not quite 0 and $v(t_1)$ is not quite 1. Hence, we simply transform
 and scale $v(t)$ with these values to make it so.
 If we slice a truncated cone from the top and moving downward, the height of the remaining cone has constant
 radius $r_0$ and slope but lower height, $h(t)$.  Given the fixity of the flank slope, this new height
@@ -437,13 +438,13 @@ by taking advantage of the analytical solutions for disc flexure \citep{BS1969}.
 The literature demonstrates that seamounts experience a wide range of sizes of submarine landslides,
 some involving mass-wasting of hundreds to thousands of cubic kilometers of material.  These collapses have been particularly well
 documented for the Hawaiian \citep[e.g.,~][]{M1989,M1994}, Society \citep[e.g.,~][]{C2001}, Marquesas \citep[e.g.,~][]{F1994}
-and Canary \citep[e.g.,~][]{WM1995,CJC1999} Islands, making it clear that construction and collapse are intertwined
-throughout the early evolution of many volcanic islands \citep{HJ2017,HJ2020}. While there are many aspect of mass
+and Canary \citep[e.g.,~][]{WM1995,CJC1999} islands, making it clear that construction and collapse are intertwined
+throughout the early evolution of many volcanic islands \citep{HJ2017,HJ2020}. While there are many aspects of mass
 redistribution that are of interest to scientists, one particular effect is the isostatic adjustment due to the
-redistribution of the seamount load on the lithosphere following a landslide and implications for uplift, stresses and rift zone formation.
+redistribution of the seamount load on the lithosphere following a landslide and the implications for uplift, stresses and rift zone formation.
 An early study by \citet{SW2000} approximated the shapes of the landslide scarps and used
 these models to perform flexural calculations using the seamount load distribution before and after a landslide event.
-Because the evolution from smaller circular seamounts through larger and more complex structures dominated by rift
+Because an evolution from smaller circular seamounts through larger and more complex structures dominated by rift
 zones \citep[e.g.,~][]{M2001} to eventual flank collapse appears to be the norm rather than the exception, we have developed
 simple models to facilitate research into the temporal evolution of oceanic seamounts.
 
@@ -497,9 +498,9 @@ from their corresponding heights $h_1$, $h_2$, $h_c$ and the volume of the slide
 will be deposited at the base of the seamount (light blue) starting from a proximal height, $h_c$.  We assume this
 deposit will have a linearly decaying height, enabling us to compute the distal radius $r_d$ from the volume of the slide,
 $V_s$.  Clearly, $V_s$ depends on both $h(r)$ and $h_s(r)$.  We will compute this volume as $V_s = \theta (V_f - V_q)$, where $V_f$
-is the fixed flank volume and whose crossection is delimited by the lines $r = r_2$, $h = 0$ and $h(r)$.  Its area $A_f$ and
-centroid $\bar{r}_f$ are computed first and we then use Pappas' theorem to get the corresponding $V_f = 2\pi\bar{r}_f A_f$;
-see \ref{app1} for flank areas and centroids of the different seamount shapes discussed in
+is the fixed flank volume and whose crossection is delimited by the lines $r = r_1$, $r = r_2$, $h = 0$ and $h(r)$.  Its area $A_f$ and
+centroid $\bar{r}_f$ are computed first, and we then use Pappas' theorem to get the corresponding $V_f = 2\pi\bar{r}_f A_f$;
+see Appendix \ref{app1} for flank areas and centroids of the different seamount shapes discussed in
 Section~\ref{sec:shape}.  For $V_q$, the upper limit is $h_s(r)$ instead. We first compute the upper part of the area,
 $A^u_q$ (light gray area) and later add the pedestal area $A^l_q$ below $h_1$ (darker gray area):
 \begin{equation*}
@@ -571,8 +572,8 @@ $V_s \rightarrow V_f-V^l_q$, we find $u_0 \rightarrow 0$.
 
 The above derivations assume the slide profile $h_s(r)$ only varies with radial position and is constant as a function
 of the azimuth within the slide sector. Alternatively, we may wish to have the slide start at the undeformed scarp height
-($h(r)$) for azimuth $\alpha_1$ and drop down to the final level ($h_s(r)$) over some azimuthal distance towards the mid-point
-to give a more realistic, scalloped appearance. We model this azimuthal scaling function by
+($h(r)$) for azimuth $\alpha_1$ and drop down to the final level ($h_s(r)$) over some azimuthal distance towards the mid-point in order
+to portray a more realistic, scalloped appearance. We model this azimuthal scaling function by
 \begin{equation*}
 s(\alpha) = s(\gamma) = 1 - \left |\gamma\right|^p,
 \end{equation*}
@@ -598,10 +599,10 @@ since $p \ge 2$. Therefore, if azimuthal variations is specified, we must scale 
 
 The above results discuss the final shape of topography after a slide has occurred.  However, for time-series analysis
 we will also need to look at intermediate stages.  This brings up a few further adjustments. We will assume that a
-slide starts at $t_0$ and completes by $t_1$ (these are different times than those used in the construction of the seamount).
+slide starts at $t_0$ and completes by $t_1$ (these are different times than those used in the construction of the seamount in Section~\ref{sec:evol}).
 We will introduce $\psi(\tau) = \tau^\beta$ as the normalized volume
 fraction of the slide as a function of normalized time $\tau = (t - t_0)/(t_1 - t_0)$.  Hence, $\psi(0) = 0$ and
-$\psi(1) = 1$ and in between we require it to be a monotonically increasing curve (e.g., linear for $\beta = 1$; see
+$\psi(1) = 1$ and in between it is a monotonically increasing curve (e.g., linear for $\beta = 1$; see
 Figure~\ref{WWKS22_Fig_slide}d).  This means that, for some time $t$, the actual volume is the fraction $\psi(t)$ of
 the final slide volume $V_s$. Because our radial slide function $h_s(r)$ always starts at the top scarp $h_2$) and
 ends at the bottom ($h_1$) we realize that to compute a slide with a reduced volume given by $\psi(t)$ we must
@@ -609,8 +610,8 @@ recompute $u_0$ via (\ref{eq:u0}). There are two separate cases to consider:
 \begin{enumerate}
   \item If a specific final landslide volume has been prescribed via $V_s = \phi_0 V_0$ then for time $t$ we simply use
   $\phi = \phi_0 \psi(t)$ when computing $u_0$.
-  \item If instead the final landslide volume is \emph{not} set, but instead we provided initial parameters such as $u_0$,
-  then we first need to determine the final slide volume $V_{s_0}$ from (\ref{eq:Vs}), then assign an
+  \item If instead the final landslide volume is \emph{not} provided as we specify initial parameters such as $u_0$,
+  then we first need to determine the final slide volume $V_0$ from (\ref{eq:Vs}), then assign an
   equivalent volume fraction  $\phi_0 = V_s/V_0$, and finally use $\phi = \phi_0 \psi(t)$ to compute the required
   $u_0$.
 \end{enumerate}
@@ -620,20 +621,20 @@ At each time step we must therefore recompute the distal radius $r_d$ but keep t
 \centering
 \includegraphics[width=12cm]{pdf/WWKS22_Fig_Nuuanu.pdf}
 \caption{(a) Present relief of the Hawaiian Ridge near Oahu and the landslide deposits to the NNE.
-(b) A simple model approximating Oahu after the landslide.  THe parameters used where $h_1 = 750$m, $h_2 = 6000$m,
-$h_c = 300$m, $\alpha_1 = -20$, $\alpha_2 = 120$, $p = 10$ and $\phi = 20$\%.
-(c) Color map shows the mass redistribution while the contour reflect the expected isostatic adjustment due for a 25 km
+(b) A simple model approximating Oahu after the landslide.  The parameters used where $h_1 = 750$m, $h_2 = 6000$m,
+$h_c = 300$m, $\alpha_1 = -20^{\circ}$, $\alpha_2 = 120^{\circ}$, $p = 10$ and $\phi = 20$\%.
+(c) Color map shows the mass redistribution elevation changes while the contour reflect the expected isostatic adjustment due for a 25 km
 thick elastic plate.}
 \label{WWKS22_Fig_Nuuanu}
 \end{figure}
 To demonstrate an application of this model we approximate the Nuuanu landslide (Figure~\ref{WWKS22_Fig_Nuuanu}),
-estimated to have affected  volume of 10--40\% of the island of Oahu, using a a conic seamount with a 140 degree sector,
+estimated to have affected a volume of 10--40\% of the island of Oahu. We use a conic seamount with a 140 $^{\circ}$ sector,
 redistributing 20\% of the initial mass over a large area north of the island.  For our model loading an elastic plate
-of 25 km thickness, the isostatic adjustment due to the large blanket of sediments peaks at 60 meters.  However, it is
+of 25 km thickness, the downward isostatic adjustment due to the large blanket of sediments peaks at 60 meters.  However, it is
 the rebound beneath the main rupture area that is of more immediate interest.  For this particular model it exceeds
 140 meter.  Depending on the timing of the landslides, such isostatic adjustments would very negatively affect coral
 communities growing on the far side of the seamount. Note we are not presenting this as an optional model for the Nuuanu
-slide but rather a case study to show the applicability of the synthetic model; yet our results are comparable to those found
+slide but rather a case study to show the applicability of the synthetic model; yet, our results are comparable to those found
 by \citet{SW2000}.
 
 \section{Density Structure of Seamounts}
@@ -712,7 +713,7 @@ always computed from the untruncated height.}
 \end{figure}
 
 As discussed in the Section \ref{sec:shape}, seamounts grow upwards and outwards, as supported by both
-geologic observations \citep[e.g.,~][]{SC2010} and dynamic arguments \cite<e.g.,>[]{LOT81}. In order to
+geologic observations \citep[e.g.,~][]{SC2010} and dynamic arguments \citep[e.g.,~][]{LOT81}. In order to
 model both flexural and gravimetric contributions accurately using established Fourier-based methodologies
 \citep[e.g.,~][]{P1972,WattsBook} we need to assign a vertically-averaged density to each incremental
 layer.  We integrate (\ref{eq:densmodel}) between $z_1(r)$ and $z_2(r)$ and normalize by the thickness
@@ -770,20 +771,20 @@ shown in Fig.~\ref{WWKS22_Fig_profile}.}
 
 To demonstrate the density model developed in this paper, we will reexamine the much-studied Jasper Seamount off
 the coast of California. This moderately large seamount ($\sim 3.5$ km tall) is a relatively young construction
-in the Fieberling-Guadalupe seamount track \citep{B1989}, with $^{40}$Ar/$^{39}$Ar ages of 10.3-7.5 Ma, although a
+in the Fieberling-Guadalupe seamount track \citep{B1989}, with $^{40}$Ar/$^{39}$Ar ages of 10.3--7.5 Ma, although a
 small volume of later summit alkalic lava series has been dated at 4.8--4.1 Ma \citep{PSG91}. Thus, the main phase
 of volcanism at this seamount is comparable in duration to that of typical Hawaiian volcanoes.  Previous gravimetric
 studies have found a low bulk density of 2380 kg m$^{-3}$ with indications of a denser body on its western flank
-\citep{H1991}, and of course the seismic 1-D velocity profile of Jasper \citep{H1994} was used to constrain the average
+\citep{H1991}. As mentioned, the 1-D seismic velocity profile of Jasper \citep{H1994} was used to constrain the average
 velocity-depth function in Fig~\ref{WWKS22_Fig_vp-rho}. To represent the relief of the seamount we extracted a
 $\sim$ 60 by 60 meter bathymetric grid from the global multi-resolution topography synthesis \citep{R2009} and used
 the -4100 m contour as the base of the volcanic feature.  Between this level and the topographic surface we created
 stacks of vertical prisms with individual density contrasts determined via (\ref{eq:avedenslayer}).
 We then computed both the free-air gravity and vertical gravity gradient anomalies over the set of $\sim 3$ million
-prisms, and for comparison we used the relief surface and the vertically averaged and co-registered density grid
+prisms. For comparison, we used the relief surface and the vertically averaged and co-registered density grid
 (via \ref{eq:avedenssmt}) to compute the same anomalies using spectral methods \citep{P1972}.
 Figure~\ref{WWKS22_Fig_Jasper} shows the bathymetric expression of Jasper seamount, our prism model with one quadrant
-removed in order to illustrate the internal density structure assigned to this seamount, and the prediction of the
+removed to illustrate the internal density structure assigned to this seamount, and the prediction of the
 vertical gravity gradient over the feature computed from the prism model.
 
 \begin{figure}[h]
@@ -799,17 +800,17 @@ cross-section.}
 
 To better compare predictions with observations we extract the solutions along a cross-section that extends diagonally
 from the southwest to the northeast grid corner (dashed line in Fig.~\ref{WWKS22_Fig_Jasper}.  Because the observed data
-also contain regional trends not captured by the model predictions we have simply adjusted the predicted curves up or down to
-give an approximate fit (i.e., we assume the regional field is just a constant for this short profile).  As expected,
+also contain regional trends not captured by the model predictions we have simply adjusted the predicted curves to
+give an approximate fit (i.e., we assume the regional field is just a linear trend for this short profile).  As expected,
 the observations inferred from altimetry lose some of the highest frequency components of the signal that would be
 necessary to match the peak of the predicted anomaly; this is more evident for the vertical gravity gradient case where shorter
 wavelengths are being amplified.  In general, we find a good fit to the observations, especially when using just the first
-two order of the \citet{P1972} expansion for free-air anomalies, as recommended by \citet{MS2007}.  However, note that we
+two orders of the \citet{P1972} expansion for free-air anomalies, as recommended by \citet{MS2007}.  However, note that we
 are not claiming that this particular density model is a better description of the  internal density structure of Jasper
 seamount than those of previous studies.  In fact, no attempt was made to adjust the parameters in (\ref{eq:avedenslayer})
 to improve the fit as this is beyond the scope of this technical brief. Nevertheless, we note that the mean density of Jasper in
 our variable density model is 2370 kg m$^{-3}$, which is almost identical to what \citet{H1991} reported. As no modeling of
-Moho was attempted, it is possible that part of the lower density could be explain by flexural compensation.
+Moho was attempted, it is possible that part of the lower density could be explained by unmodelled flexural compensation.
 
 \section{Data and code availability}
 
