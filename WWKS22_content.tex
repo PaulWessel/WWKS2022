@@ -49,8 +49,10 @@ seamount shapes in some details: Gaussian, polynomial, conic and parabolic.  All
 into the global extrusive magma budget and its spatial distribution require seamount volumes and basal areas \citep[e.g.,~][]{B1982},
 we are interested in developing expressions for their volumes, seafloor area coverage, and average heights
 as functions of important morphological parameters such as flatness, basal radius, height, and ellipticity.
+Simple seamount models may also assist scientist when analyzing limited observations of seamounts, such as a single
+ship track with a single beam echo sounder crossing of it, and requiring an estimate of its volume \citep[e.g.,~][]{HW2007}. 
 Furthermore, seamounts serve as loads in isostatic studies and so it is important to define their internal
-density structure, especially when comparing the calculated surfaces of flexure with seismic observations.
+density structure, especially when comparing the calculated surfaces of flexure with seismic observations \citep[e.g.,~][]{W2021}.
 
 In the following, the relationship between the height of the seamount as a function of radial distance from
 its center, $r$, will be denoted $h(r)$. Because there is often extraneous seafloor structure near the base
@@ -806,7 +808,10 @@ two order of the \citet{P1972} expansion for free-air anomalies, as recommended 
 are not claiming that this particular density model is a better description of the  internal density structure of Jasper
 seamount than those of previous studies.  In fact, no attempt was made to adjust the parameters in (\ref{eq:avedenslayer})
 to improve the fit as this is beyond the scope of this technical brief. Nevertheless, we note that the mean density of Jasper in
-our variable density model is 2370 kg m$^{-3}$, which is almost identical to what \citet{H1991} reported.
+our variable density model is 2370 kg m$^{-3}$, which is almost identical to what \citet{H1991} reported. As no modeling of
+Moho was attempted, it is possible that part of the lower density could be explain by flexural compensation.
+
+\section{Data and code availability}
 
 The capabilities outlined in this paper have been implemented in the Generic Mapping Tools \citep{Wetal2019}, version 6.4.
 Seamount studies that require incremental building (for flexural calculations on a time-dependent rheology), including
@@ -815,19 +820,17 @@ seamounts and their gravimetric expressions may find the tools \texttt{grdseamou
 in the {\it potential} supplement useful. While obviously simplistic, we hope the models and their implementations
 in GMT will inspire scientists to use them in further studies of seamount modeling, validation and exploration.
 
-\section{Data and code availability}
-
-The GMT scripts used to produce all results and figures presented here
-is available at \url{https://github.com/PaulWessel/SMT22}
+The GMT scripts (and data) used to produce all results and figures presented here
+are available at \url{https://github.com/PaulWessel/SMT22}
 under the BSD 3-clause open-source license.
-
 Source code and installers for GMT are available at.
-\url{https://www.generic-mapping-tools.org} under the GNU license.
+\url{https://www.generic-mapping-tools.org} under the GNU LGPL license 3 or later.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Acknowledgements}
-This work was supported by US National Science Foundation grant xxyyyyy and a Leverhulme Visiting Professorship to P.W.
+This work was supported by US National Science Foundation grant OCE-1953499
+and a Leverhulme Visiting Professorship to P.W.
 S.-S.K. acknowledges support from the National Research Foundation of Korea
 (NRF-2021R1A2C1012030) and the Korea government (MOF 19992001).
-This is SOEST publication no. xxxx.
+This is SOEST publication no. xx,xxx.
