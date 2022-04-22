@@ -57,7 +57,7 @@ WWKS22_Fig_Jasper.sh:	WWKS22_Jasper_calc.sh
 
 .FORCE:
 
-WWKS22.pdf: pdf WWKS22.tex
+WWKS22.pdf: pdf WWKS22.tex WWKS22_abstract.tex WWKS22_appendix.tex WWKS22_content.tex WWKS22_variables.tex
 	\rm -f WWKS22*.{aux,idx,ilg,ind,log,lof,lot,toc,out,dvi}
 	$(PDFLATEX) WWKS22
 	bibtex WWKS22
