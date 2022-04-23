@@ -1,5 +1,6 @@
 pdf/*.pdf
 png/*.png
+jpg/*.jpg
 calc
 WWKS22.pdf
 *.aux
@@ -7,3 +8,4 @@ WWKS22.pdf
 *.blg
 *.log
 *.out
+*.tar

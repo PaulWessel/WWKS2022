@@ -116,3 +116,4 @@ gmt begin
 		echo "SW to NE" | gmt text -F+f10p+cTL+jTL -Dj6p/32p
 	gmt subplot end
 gmt end show
+rm -f t.cpt t.grd

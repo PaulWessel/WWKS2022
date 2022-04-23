@@ -17,6 +17,7 @@ help::
 #!
 #!make <target>, where <target> can be:
 #!
+#!archive       : Build zip file with Latex contents
 #!recalc        : Remove the calc directory to recompute Jasper grids
 #!paper         : Build figures and then PDF for the paper
 #!pdf           : Just build or update PDF figures for the paper
@@ -76,3 +77,6 @@ spotless:	clean
 
 wipe:	spotless
 	rm -rf calc
+
+archive:
+	COPYFILE_DISABLE=1 tar cvf WWKS22.tar *.tex *.bib natbibspacing.sty orcidlink.sty gji.bst gji.cls gji_extra.sty apalike-doi.bst
