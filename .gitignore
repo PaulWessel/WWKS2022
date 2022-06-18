@@ -9,3 +9,4 @@ WWKS22.pdf
 *.log
 *.out
 *.tar
+.DS_Store
