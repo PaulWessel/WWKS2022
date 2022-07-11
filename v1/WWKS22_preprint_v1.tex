@@ -1,0 +1,142 @@
+% Wessel, P., Watts, A. B., Kim, S.-S., and Sandwell, D. T., 2022
+%   Models for the Evolution of Seamount, Geophys. J. Int.
+%
+% Template for an EarthArXiv preprint of the manuscript.
+% Includes the standard disclaimers and formatting that is required.
+%
+\documentclass[twocolumn,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[longend,linesnumbered,ruled]{algorithm2e}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{orcidlink}
+\usepackage{float}
+
+% Import packages useful for creating the parameters tables
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{setspace}
+
+% Import natbib and doi packages
+\usepackage[round,authoryear,sort]{natbib}
+\usepackage{doi} % show dois as links on references
+\usepackage{natbibspacing} % Remove extra space between references
+
+% Define style for urls
+\urlstyle{same}
+
+% Configure column separation and page geometry
+\usepackage[a4paper,margin=1.5cm,includeheadfoot,footskip=0mm,headheight=3mm,headsep=7.5mm]{geometry}
+\setlength{\columnsep}{0.5cm}
+
+% Import variables
+\input{WWKS22_variables.tex}
+
+
+% Define authors and affiliations
+% ===============================
+\newcommand{\Author}{%
+  \WesselShort{}, \WattsShort{}, \KimShort{} \& \SandwellShort{}
+}
+\newcommand{\AuthorLong}{%
+  \Wessel{}, \Watts{}, \Kim{} and \Sandwell{}
+}
+
+\newcommand{\AuthorAffil}{%
+    {\large
+     \Wessel$^{1}$ \orcidlink{\WesselORCID},
+     \Watts$^{2}$ \orcidlink{\WattsORCID},
+     \Kim$^{3}$ \orcidlink{\KimORCID},
+      and
+      \Sandwell$^{3}$ \orcidlink{\SandwellORCID}
+    }
+    \\[0.4cm]
+    {\small $^{1}$\SOEST} \\
+    {\small $^{2}$\OXFORD} \\
+    {\small $^{3}$\CHUNGNAM} \\
+    {\small $^{4}$\UCSD} \\
+    {\small\WesselMail} \\
+}
+
+% Configure header and footer
+% ===========================
+\newcommand{\Header}{%
+  \Author{} (\Year{}). \Title{}. EarthArXiv.
+  doi:\href{https://doi.org/\PreprintDOI}{\PreprintDOI}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\Header{}}
+\rhead{\small \thepage}
+\renewcommand{\headrulewidth}{0.1pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \rfoot{}
+  \lfoot{}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% Configure hypersetup
+% ====================
+\hypersetup{
+    allcolors=blue,
+    pdftitle={\Title},
+    pdfauthor={\Author},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{\Title}
+\author{\AuthorAffil}
+\date{
+    \normalsize
+    \Year
+}
+%\maketitle
+
+\noindent
+Accepted 2022 XXXX yy. Received in original form 2022 April 25.
+\\[0.5cm]
+\noindent
+\textbf{Disclaimer:}
+This is a pre-copyedited, author-produced PDF of an article
+published in \Journal{} following peer review.
+It is available from EarthArXiv at
+\href{https://doi.org/\PreprintDOI}{doi.org/\PreprintDOI}.
+The version of record
+``\Author{} (\Year{}). \Title{}. \Journal{}. doi:\DOI{}''
+is available online at \DOILink{}.
+\\[0.5cm]
+\noindent
+\textbf{License:}
+\textcopyright{} \Year{} \AuthorLong{}.
+Available under a Creative Commons Attribution 4.0 International license
+(\href{https://creativecommons.org/licenses/by/4.0/}{CC-BY}).
+
+
+\begin{abstract}
+    \input{WWKS22_abstract}
+\end{abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{WWKS22_content.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{apalike-doi}
+\bibliography{WWKS22_refs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{WWKS22_appendix.tex}
+
+\end{document}

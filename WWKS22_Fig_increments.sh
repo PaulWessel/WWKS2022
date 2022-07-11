@@ -7,6 +7,7 @@
 # 		Using un-truncated Gaussian shapes with linear flux
 #
 # P. Wessel, April 2022
+# Double-column figure in GJI so aim for W <= 17.3 cm
 
 # Determine if we need to specify an output directory or not
 if [ "X${1}" = "X" ]; then
@@ -16,10 +17,11 @@ else
 fi
 gmt begin ${dir}WWKS22_Fig_increments $1
 	gmt set GMT_THEME cookbook
+	gmt set FONT_ANNOT_PRIMARY 9p
 	echo "100	75	50	5000	1	0" > t.txt
 	gmt grdseamount -R40/160/74/76+uk -I100 -Gsmtc_%05.2f.nc t.txt -T0.8/0/0.2 -Qc/g -Dk -Cg -Mc.lis
 	gmt grdseamount -R40/160/74/76+uk -I100 -Gsmti_%05.2f.nc t.txt -T0.8/0/0.2 -Qi/g -Dk -Cg -Mi.lis
-	gmt subplot begin 5x2 -SCb+tc -SRl -A -R40/160/0/5.010 -Fs3i/0.5i -M8p/1p
+	gmt subplot begin 5x2 -SCb+tc -SRl -A -R40/160/0/5.15 -Fs8c/1.3c -M8p/1p
 		gmt set FONT_TAG 12p,Times-Italic,black
 		gmt subplot set 0,0 -A"t = 4"
 		echo "h(t)" | gmt text -F+cTR+jTR+f14p -Dj4p

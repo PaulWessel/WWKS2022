@@ -8,6 +8,7 @@
 # 		while the right shows predicted densities
 #
 # P. Wessel, April 2022
+# Double-column figure in GJI so aim for W <= 17.3 cm
 
 # Determine if we need to specify an output directory or not
 if [ "X${1}" = "X" ]; then
@@ -15,7 +16,7 @@ if [ "X${1}" = "X" ]; then
 else
 	dir="${1}/"
 fi
-V2R=data/Brocher-2025-rho-v.txt
+V2R=data/Brocher-2005-rho-v.txt
 #D=/Users/pwessel/Dropbox/UH/ACTIVE/PROJECTS/OXFORD2022/For_Paul
 function vztorz {	# Do the Broucher (2005) conversion
 	# $1 is the data set of v,z we want to convert to r,z
@@ -46,16 +47,14 @@ gmt begin ${dir}WWKS22_Fig_vp-rho-model $1
 	gmt subplot begin 1x2 -Fs8c/5c -A+jTRL -Srl -Sct
 	gmt subplot set 0
 	# BL: Show the median vp(z) with 1-sigma bound
-	gmt basemap -R3/7.5/0/8 -JX8c/-5c -Bxaf+l"Velocity (km/s)" -Byaf+l"Depth (km)"
-	gmt plot poly_v.txt -Glightgray -l"1@~s@~ confidence"+jBL
+	gmt plot  -R3/7.5/0/8 -JX8c/-5c poly_v.txt -Glightgray -l"1@~s@~ confidence"+jBL
 	gmt plot median_v.txt -W2p -i1,0 -l"Median v@-p@-(z)"
 	# Fit of z^p fit to median v(z) with 1/MAD as weights
 	#gmt math -T0/7/0.1 T 7 DIV 0.4727 POW 4.0965 MUL 2.91 ADD = | gmt plot -W2p,red -i1,0
-	printf "0 7\n8 7\n" | gmt plot -W2p,4_2:0
+	printf "0 7\n8 7\n" | gmt plot -W2p,4_2:0 -Bxaf+l"Velocity (km/s)" -Byaf+l"Depth (km)" -BWNse
 	gmt subplot set 1
 	# BR: Show the median rho(z) with 1-sigma bound, and two models
-	gmt basemap -R2.2/3.3/0/8 -JX8c/-5c -Bxaf+l"Density (kg/m@+3@+)" -Byaf+l"Depth (km)"
-	gmt plot poly_r.txt -Glightgray -l"1@~s@~ confidence"+jBL
+	gmt plot -R2.2/3.3/0/8 -JX8c/-5c poly_r.txt -Glightgray -l"1@~s@~ confidence"+jBL
 	gmt plot median_r.txt -W2p -i1,0 -l"Median @~r@~(z)"
 	# Fit of z^p fit to median with 1/MAD as weights
 	gmt math -T0/7/0.1 T 7 DIV 0.776 POW 0.7325 MUL 2.262 ADD = | gmt plot -W2p,red -i1,0 -l"Model A (p = 0.78)"
@@ -65,7 +64,7 @@ gmt begin ${dir}WWKS22_Fig_vp-rho-model $1
 	gmt math -T0/7/1 T 7 DIV 0.7223 MUL 2.3327 ADD = | gmt plot -W2p,blue -i1,0 -l"Model B (linear)"
 	# Next line shows the slight rounding reported in paper is OK
 	#gmt math -T0/7/1 T 7 DIV 0.72 MUL 2.33 ADD = | gmt plot -Wfaint,white -i1,0
-	printf "1 7\n4 7\n" | gmt plot -W2p,4_2:0
+	printf "1 7\n4 7\n" | gmt plot -W2p,4_2:0 -Bxaf+l"Density (kg/m@+3@+)" -Byaf+l"Depth (km)" -BwsNe
 	gmt subplot end
 gmt end show
 

@@ -79,7 +79,7 @@ gmt begin
 	# Restrict the grid to just the edifice
 	gmt grdcut @earth_vgg_01m -R-122:53/-122:33/30:17/30:37 -G/tmp/obs_vgg.grd
 	gmt grdcut @earth_faa_01m -R-122:53/-122:33/30:17/30:37 -G/tmp/obs_faa.grd
-	gmt subplot begin 3x1 -Fs15c/4.5c -A -Scb
+	gmt subplot begin 3x1 -Fs16c/4.5c -A -Scb
 		# VGG
 		gmt basemap -R0/48/-50/280 -Bxaf+u" km" -Byaf+l"VGG (Eotvos)" -c
 		gmt grdtrack -G/tmp/obs_vgg.grd -E${w}/${s}/${e}/${n}+d -o2,3 | grep -v NaN > /tmp/vgg.txt
@@ -89,10 +89,10 @@ gmt begin
 		gmt grdtrack -Gcalc/jasper_vgg_fft_var_n2.grd -E${w}/${s}/${e}/${n}+d -o2,3 | grep -v NaN > /tmp/mod2.txt
 		vgg_trend2 /tmp/mod2.txt | gmt plot -W1p,blue -l"FFT (n = 2)"
 		gmt grdtrack -Gcalc/jasper_vgg_fft_var_n8.grd -E${w}/${s}/${e}/${n}+d -o2,3 | grep -v NaN > /tmp/mod3.txt
-		vgg_trend2 /tmp/mod3.txt | gmt plot -W0.25p,orange -l"FFT (n = 8)"
+		vgg_trend2 /tmp/mod3.txt | gmt plot -W0.5p,orange -l"FFT (n = 8)"
 		gmt grdtrack -Gcalc/jasper_vgg_fft_const_n8.grd -E${w}/${s}/${e}/${n}+d -o2,3 | grep -v NaN > /tmp/mod3b.txt
-		vgg_trend2 /tmp/mod3b.txt | gmt plot -W0.25p,cyan -l"FFT @~Dr@~ fixed"
-		gmt math -T0/50/10 T 35 50 DIV MUL 35 SUB = | gmt plot -W0.25p,- -l"Regional"
+		vgg_trend2 /tmp/mod3b.txt | gmt plot -W0.5p,cyan -l"FFT @~Dr@~ fixed"
+		gmt math -T0/50/10 T 35 50 DIV MUL 35 SUB = | gmt plot -W0.5p,2_2:0 -l"Regional"
 		echo "SW to NE" | gmt text -F+f10p+cTL+jTL -Dj6p/32p
 		# FAA
 		gmt basemap -R0/48/-30/120 -Bxaf+u" km" -Byaf+l"FAA (mGal)" -c
@@ -103,17 +103,16 @@ gmt begin
 		gmt grdtrack -Gcalc/jasper_faa_fft_var_n2.grd -E${w}/${s}/${e}/${n}+d -o2,3 | grep -v NaN > /tmp/mod5.txt
 		faa_trend2 /tmp/mod5.txt | gmt plot -W1p,blue -l"FFT (n = 2)"
 		gmt grdtrack -Gcalc/jasper_faa_fft_var_n8.grd -E${w}/${s}/${e}/${n}+d -o2,3 | grep -v NaN > /tmp/mod6.txt
-		faa_trend2 /tmp/mod6.txt | gmt plot -W0.25p,orange -l"FFT (n = 8)"
+		faa_trend2 /tmp/mod6.txt | gmt plot -W0.5p,orange -l"FFT (n = 8)"
 		gmt grdtrack -Gcalc/jasper_faa_fft_const_n8.grd -E${w}/${s}/${e}/${n}+d -o2,3 | grep -v NaN > /tmp/mod6b.txt
-		faa_trend3 /tmp/mod6b.txt | gmt plot -W0.25p,cyan -l"FFT @~Dr@~ fixed"
-		gmt math -T0/50/10 T 15 50 DIV MUL 25 SUB = | gmt plot -W0.25p,- -l"Regional"
+		faa_trend3 /tmp/mod6b.txt | gmt plot -W0.5p,cyan -l"FFT @~Dr@~ fixed"
+		gmt math -T0/50/10 T 15 50 DIV MUL 25 SUB = | gmt plot -W0.5p,2_2:0 -l"Regional"
 		echo "SW to NE" | gmt text -F+f10p+cTL+jTL -Dj6p/32p
 		# TOPO
-		gmt basemap -R0/48/-4.5/0 -Bxaf+u" km" -Byaf+l"Depth (km)" -c
 		gmt grdmath /tmp/new.grd 1000 DIV = /tmp/new_km.grd
-		gmt grdtrack -G/tmp/new_km.grd -E${w}/${s}/${e}/${n}+d | gmt plot -i2,3 -L+yb -Ggray -l"Relief"
-		gmt math -T0/50/10 T 0.25 50 DIV MUL 4.27 SUB = | gmt plot -W0.25p,- -l"Regional"
-		echo "SW to NE" | gmt text -F+f10p+cTL+jTL -Dj6p/32p
+		gmt grdtrack -G/tmp/new_km.grd -E${w}/${s}/${e}/${n}+d | gmt plot -i2,3 -L+yb -Ggray -l"Relief" -R0/48/-4.5/0 -c
+		gmt math -T0/50/10 T 0.25 50 DIV MUL 4.27 SUB = | gmt plot -W0.5p,2_2:0 -l"Regional"
+		echo "SW to NE" | gmt text -F+f10p+cTL+jTL -Dj6p/32p -Bxaf+u" km" -Byaf+l"Depth (km)" -BWsnr
 	gmt subplot end
 gmt end show
 rm -f t.cpt t.grd

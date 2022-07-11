@@ -8,6 +8,7 @@
 # 		while the right shows predicted densities
 #
 # P. Wessel, April 2022
+# Double-column figure in GJI so aim for W <= 17.3 cm
 
 # Determine if we need to specify an output directory or not
 if [ "X${1}" = "X" ]; then
@@ -15,7 +16,7 @@ if [ "X${1}" = "X" ]; then
 else
 	dir="${1}/"
 fi
-V2R=data/Brocher-2025-rho-v.txt
+V2R=data/Brocher-2005-rho-v.txt
 #D=/Users/pwessel/Dropbox/UH/ACTIVE/PROJECTS/OXFORD2022/For_Paul
 function vztorz {	# Do the Broucher (2005) conversion
 	# $1 is the data set of v,z we want to convert to r,z
@@ -40,28 +41,11 @@ awk '{print $2-$3, $1}' median_v.txt > poly_v.txt
 awk '{print $2+$3, $1}' median_v.txt | tail -r >> poly_v.txt
 awk '{print $2-$3, $1}' median_r.txt > poly_r.txt
 awk '{print $2+$3, $1}' median_r.txt | tail -r >> poly_r.txt
-# Moore, 2001 mean density ranges
-cat << EOF > moore.txt
-2.550	0.950	0.240	0.050
-3.010	2.050	0.100	0.050
-2.670	2.333	0.130	0.125
-2.890	2.705	0.170	0.050
-2.970	3.000	0.080	0.090
-EOF
-# Hyndman et al, 1979 Azores mean density ranges
-cat << EOF > hyndman.txt
-2.60	0.400	0.200	0.400
-2.71	0.800	0.100	0.050
-2.79	0.925	0.100	0.075
-EOF
 gmt begin ${dir}WWKS22_Fig_vp-rho $1
 	# TL: Plot all vp(z) published curves
 	gmt subplot begin 1x2 -Fs8c/9c -A+jTR -Srl -Sct
 	gmt subplot set 0
-	gmt basemap -R1/8/0/8 -JX8c/-9c -Bxaf+l"Velocity (km/s)" -Byaf+l"Depth (km)"
-	gmt plot poly_v.txt -Glightgray
-	gmt plot median_v.txt -W2p -i1,0
-	gmt plot data/ascension-[12].txt -W1.5p,orange  -l"Ascension"+jBL
+	gmt plot data/ascension-[12].txt -W1.5p,orange  -l"Ascension"+jBL -R1/8/0/8 -JX8c/-9c
 	gmt plot data/emperor-1.txt      -W1.5p,purple  -l"Emperors"
 	gmt plot data/emperor-2.txt      -W1.5p,purple
 	gmt plot data/grancanary.txt     -W1.5p,yellow  -l"Gran Canaria"
@@ -75,13 +59,10 @@ gmt begin ${dir}WWKS22_Fig_vp-rho $1
 	gmt plot data/reunion.txt        -W1.5p,gray    -l"Réunion"
 	gmt plot data/society.txt        -W1.5p,cyan    -l"Society Islands"
 	gmt plot data/tenerife.txt    -W1.5p,darkgreen  -l"Tenerife"
-	printf "0 7\n8 7\n" | gmt plot -W2p,4_2:0
+	printf "0 7\n8 7\n" | gmt plot -W2p,4_2:0 -Bxaf+l"Velocity (km/s)" -Byaf+l"Depth (km)" -BWNes
 	# TR: Plot the straight conversion of vp(z) to rho(z)
 	gmt subplot set 1
-	gmt basemap -R1.5/3.5/0/8 -JX8c/-9c -Bxaf+l"Density (kg/m@+3@+)" -Byaf+l"Depth (km)"
-	gmt plot poly_r.txt -Glightgray
-	gmt plot median_r.txt -W2p -i1,0
-	vztorz data/ascension-1.txt | gmt plot -W1.5p,orange
+	vztorz data/ascension-1.txt | gmt plot -W1.5p,orange -R1.5/3.5/0/8 -JX8c/-9c
 	vztorz data/ascension-2.txt | gmt plot -W1.5p,orange
 	vztorz data/emperor-1.txt   | gmt plot -W1.5p,purple
 	vztorz data/emperor-2.txt   | gmt plot -W1.5p,purple
@@ -96,10 +77,10 @@ gmt begin ${dir}WWKS22_Fig_vp-rho $1
 	vztorz data/reunion.txt     | gmt plot -W1.5p,gray
 	vztorz data/society.txt     | gmt plot -W1.5p,cyan
 	vztorz data/tenerife.txt    | gmt plot -W1.5p,darkgreen
-	printf "1 7\n4 7\n"    | gmt plot -W2p,4_2:0
-	gmt plot moore.txt -Sc5p -Gred -E+p1p -l"Moore (2001)"+jBL
-	gmt plot hyndman.txt -Sc5p -Gblue -E+p1p -l"Hyndman et al (1979)"
+	printf "1 7\n4 7\n"    | gmt plot -W2p,4_2:0 -Bxaf+l"Density (kg/m@+3@+)" -Byaf+l"Depth (km)" -BwsNe
+	gmt plot data/moore.txt -Sc5p -Gred -E+p1p -l"Moore (2001)"+jBL
+	gmt plot data/hyndman.txt -Sc5p -Gblue -E+p1p -l"Hyndman et al (1979)"
 	gmt subplot end
 gmt end show
 
-rm -f median_[rv].txt poly_[rv].txt moore.txt hyndman.txt gmt.history
+rm -f median_[rv].txt poly_[rv].txt gmt.history

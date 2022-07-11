@@ -6,6 +6,7 @@
 # Fig:	Disc "seamount" model
 #
 # P. Wessel, April 2022
+# Single-column figure in GJI so aim for W = 8.4 cm
 
 # Determine if we need to specify an output directory or not
 if [ "X${1}" = "X" ]; then
@@ -26,7 +27,7 @@ gmt begin ${dir}WWKS22_Fig_disc $1
 	4	1
 	4	0
 	EOF
-	gmt plot -R-5/5/-0.05/1.35 -JX6.5i/1.25i -Glightgray /tmp/body
+	gmt plot -R-5/5/0/1.35 -JX8.4c/1.6c -Glightgray /tmp/body
 	gmt plot -W2p /tmp/tmp
 	gmt plot -Sv0.1i+e+s -Gblack -W0.5p -N <<- EOF
 	-5	0	5	0
@@ -37,7 +38,7 @@ gmt begin ${dir}WWKS22_Fig_disc $1
 	-0.5	0.2
 	4.3	0.2
 	EOF
-	gmt pstext -F+f16p,Times-Italic+j -N <<- EOF
+	gmt pstext -F+f9p,Times-Italic+j -N <<- EOF
 	4	-0.05	TC	r@-0@- = r@-n@-
 	4.3	0.2	LM	h@-n@-
 	-0.2	1	RM	h@-0@-

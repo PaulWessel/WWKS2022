@@ -1,5 +1,5 @@
 #
-# GNU Makefile for
+# Makefile for
 #
 # Wessel, P., Watts, A. B., Kim, S.-S., and Sandwell, D. T., 2022
 #   Models for the Evolution of Seamount, Geophys. J. Int.
@@ -11,7 +11,7 @@
 PDFLATEX=pdflatex
 
 help::
-		@grep '^#!' GNUmakefile | cut -c3-
+		@grep '^#!' Makefile | cut -c3-
 #!-------------------- MAKE HELP FOR PAPER --------------------
 #!
 #!
@@ -29,7 +29,7 @@ help::
 #---------------------------------------------------------------------------
 FIG=	WWKS22_Fig_Gaussian.sh WWKS22_Fig_cone.sh WWKS22_Fig_disc.sh \
 		WWKS22_Fig_parabola.sh WWKS22_Fig_flux.sh WWKS22_Fig_increments.sh \
-		WWKS22_Fig_vp-rho.sh WWKS22_Fig_vp-rho-model.sh WWKS22_Fig_polynomial.sh \
+		WWKS22_Fig_vp-model.sh WWKS22_Fig_rho-model.sh WWKS22_Fig_polynomial.sh \
 		WWKS22_Fig_smt.sh WWKS22_Fig_densitymodel.sh WWKS22_Fig_slide.sh \
 		WWKS22_Fig_Nuuanu.sh WWKS22_Fig_Jasper.sh WWKS22_Fig_prisms.sh
 

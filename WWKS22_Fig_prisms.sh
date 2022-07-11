@@ -7,6 +7,7 @@
 # 		(a) constant density, (b) full variable density, and (c) variable horizontal density.
 #
 # P. Wessel, April 2022
+# Single-column figure in GJI so aim for W = 8.4 cm
 
 # Determine if we need to specify an output directory or not
 if [ "X${1}" = "X" ]; then
@@ -27,19 +28,19 @@ gmt gravprisms -S/tmp/prismfig_smt.grd -D/tmp/prismfig_averho.grd -C+w/tmp/prism
 gmt gravprisms -S/tmp/prismfig_smt.grd -H7/2400/3030+p0.8 -C+w/tmp/prismfig_prisms3.txt+q+z0.2
 # Make plots
 gmt begin ${dir}WWKS22_Fig_prisms $1
-	gmt set FONT_TAG 16p
+	gmt set FONT_TAG 14p
  	gmt makecpt -Cturbo -I -T2400/2950
-	gmt subplot begin 3x1 -Fs10c/4c -A+o0.2c/-1.3c -M1p
+	gmt subplot begin 3x1 -Fs8.4c/3.5c -A+o0.2c/-1.3c -M1p
 		gmt subplot set 0
-		gmt plot3d -R-30/30/-30/30/0/7 -JX8c -JZ3c -C -So1q+b /tmp/prismfig_prisms1.txt -i0:2,6,3 -Baf -Bzaf -BWSrtZ -p200/20
-		echo "@~r@~@-l@-" | gmt text -F+f12p,Times-Italic+cBR+jBR -N -D0/4c
+		gmt plot3d -R-30/30/-30/30/0/7 -JX6.7c -JZ2.6c -C -So1q+b /tmp/prismfig_prisms1.txt -i0:2,6,3 -Baf -Bzaf -BWSrtZ -p200/20
+		echo "@~r@~@-l@-" | gmt text -F+f10p,Times-Italic+cBR+jBR -N -D0/4c
 		gmt subplot set 2
-		gmt plot3d -R-30/30/-30/30/0/7 -JX8c -JZ3c -C -So1q+b /tmp/prismfig_prisms2.txt -i0:2,6,3 -Baf -Bzaf -BWSrtZ -p200/20
-		echo "@~r@~@-l@-(r)" | gmt text -F+f12p,Times-Italic+cBR+jBR -N -D0/4c
+		gmt plot3d -R-30/30/-30/30/0/7 -JX6.7c -JZ2.6c -C -So1q+b /tmp/prismfig_prisms2.txt -i0:2,6,3 -Baf -Bzaf -BWSrtZ -p200/20
+		echo "@~r@~@-l@-(r)" | gmt text -F+f10p,Times-Italic+cBR+jBR -N -D0/4c
 		gmt subplot set 1
-		gmt plot3d -R-30/30/-30/30/0/7 -JX8c -JZ3c -C -So1q+b /tmp/prismfig_prisms3.txt -i0:2,6,3 -Baf -Bzaf -BWSrtZ -p200/20
-		echo "@~r@~@-l@-(r,z)" | gmt text -F+f12p,Times-Italic+cBR+jBR -N -D0/4c
+		gmt plot3d -R-30/30/-30/30/0/7 -JX6.7c -JZ2.6c -C -So1q+b /tmp/prismfig_prisms3.txt -i0:2,6,3 -Baf -Bzaf -BWSrtZ -p200/20
+		echo "@~r@~@-l@-(r,z)" | gmt text -F+f10p,Times-Italic+cBR+jBR -N -D0/4c
 	gmt subplot end
-	gmt colorbar -DJBC -Bxaf -By+l"kg\267m@+-3@+"
+	gmt colorbar -DJBC -Bxaf -By+l"kg\267m@+-3@+" --FONT_ANNOT_PRIMARY=9p
 gmt end show
 rm -f gmt.history
