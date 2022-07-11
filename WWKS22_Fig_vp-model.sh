@@ -59,17 +59,17 @@ gmt begin ${dir}WWKS22_Fig_vp-model $1
 	gmt plot data/reunion.txt        -W1.5p,gray    -l"Réunion"
 	gmt plot data/society.txt        -W1.5p,cyan    -l"Society Islands"
 	gmt plot data/tenerife.txt    -W1.5p,darkgreen  -l"Tenerife"
-	printf "0 7\n8 7\n" | gmt plot -W2p,4_2:0 -Bxaf+l"Velocity V@-p@- (km/s)" -Byaf+l"Depth (km)" -BWNrb
+	printf "0 7\n8 7\n" | gmt plot -W2p,4_2:0 -Bxaf+l"Velocity v@-p@- (km/s)" -Byaf+l"Depth (km)" -BWNrb
 	# TR: Plot the straight conversion of vp(z) to rho(z)
 
 	# b) Median velocity profile and confidence band
 	gmt subplot set 1
 	# Show the median vp(z) with 1-sigma bound
 	gmt plot  -R3/7.5/0.125/8 -JX8c/-8c poly_v.txt -Glightgray -l"1@~s@~ confidence"+jBL+o6p/1.2c
-	gmt plot median_v.txt -W2p -i1,0 -l"Median V@-p@-(z)"
+	gmt plot median_v.txt -W2p -i1,0 -l"Median v@-p@-(z)"
 	# Fit of z^p fit to median v(z) with 1/MAD as weights
 	#gmt math -T0/7/0.1 T 7 DIV 0.4727 POW 4.0965 MUL 2.91 ADD = | gmt plot -W2p,red -i1,0
-	printf "0 7\n8 7\n" | gmt plot -W2p,4_2:0 -BwNbr -Bxaf+l"Velocity V@-p@- (km/s)"
+	printf "0 7\n8 7\n" | gmt plot -W2p,4_2:0 -BwNbr -Bxaf+l"Velocity v@-p@- (km/s)"
 	gmt subplot end
 gmt end show
 
