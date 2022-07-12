@@ -6,18 +6,18 @@
 Volcanic seamounts are present in all the world's oceans and are some of the most ubiquitous
 landforms on Earth. \citet{M1964} defined seamounts as isolated underwater volcanic constructions
 that exceeded 1,000 m in height from base to summit, but with improved mapping capabilities we now
-recognize features as small as 50–100 m in height as proper volcanic seamounts \citep[e.g.,~][]{SC1990}.
+recognize isolated volcanic features as small as 50–100 m in height as proper seamounts \citep[e.g.,~][]{SC1990}.
 Found in many tectonic settings, seamounts are generally understood to have been created near mid-ocean
 spreading ridges, around transform faults and fracture zones, in plate interiors over upwelling
 mantle plumes, and in island-arc convergent settings
 \citep[e.g.,~][]{SC2010}. Because of their ubiquity, they are important for many disciplines, such as
 marine geology, oceanography, biology, ecology, and possibly, economic geology if considering future harvesting of
 scarce mineral resources \citep[e.g.,~][]{WSK2010,WK2010}. Given the vastness of the oceans, multibeam bathymetric
-mapping by research vessels have to date only identified a few thousand of them, making seamount
+mapping by research vessels has to date only identified a few thousand of them, making seamount
 characterization one of the last major frontiers in the ocean sciences. In contrast, the ever-improving
 quality and coverage of the Earth's gravitational field by
 satellite altimetry \citep[e.g.,~][]{Setal2021}, from which seafloor relief may be approximated
-\citep{SS1997}, has inspired numerous studies to refine the global seamount population and add several
+\citep[e.g.,~][]{SS1997}, has inspired numerous studies to refine the global seamount population and add several
 tens of thousand seamounts to a growing data base \citep{CS1988,WL1997,W2001,KL2004,KW2011,G2022}. 
 \begin{figure}
 \centering
@@ -55,8 +55,6 @@ we are interested in developing expressions for their volumes, seafloor area cov
 as functions of important morphological parameters such as flatness, basal radius, height, and ellipticity.
 Simple seamount models may also assist scientists when analyzing limited observations of seamounts, such as a single
 ship track with a single beam echo sounder crossing, and requiring an estimate of its volume \citep[e.g.,~][]{HW2007}. 
-Furthermore, seamounts serve as loads in isostatic studies and so it is important to approximate their internal
-density structure, especially when comparing the calculated surfaces of flexure with seismic observations \citep[e.g.,~][]{W2021}.
 
 In the following, the height of the seamount as a function of radial distance from
 its center, $r$, will be denoted $h(r)$. Because there is often extraneous seafloor structure near the base
@@ -67,7 +65,9 @@ above a prescribed noise floor.  Depending on the chosen seamount geometry, we o
 volumes, and mean heights.  Moreover, to simulate the evolution of seamounts we may need to evolve them over a
 specified life span, and hence the increments in volume between each time step will be needed. Because growth
 and collapse are integral parts of seamount evolution \citep[e.g.,~][]{HJ2020} we also present simple models to
-simulate sectoral flank collapses.  Finally, we will consider a general model for axisymmetric density variations
+simulate sectoral flank collapses.  Finally, seamounts serve as loads in isostatic studies and so it is important
+to approximate their internal density structure, especially when comparing the calculated surfaces of flexure with
+seismic observations \citep[e.g.,~][]{W2021}. Thus, we will introduce a general model for axisymmetric density variations
 and assign vertically-averaged density contrasts to each increment. Before we descend into the details we remind
 the reader that while individual seamounts may exhibit considerable deviation from our simplistic models, our aim
 is to model the first-order evolution of one of the most ubiquitous landforms on Earth: seamounts.
@@ -100,9 +100,9 @@ For a truncated cone (Fig.~\ref{WWKS22_Fig_cone}), the height depends on radius 
 \begin{equation*}
 h(r) = \left \{ \begin{array}{cl}
 	h_0, &	r \leq f_f \\*[1ex]
-	\displaystyle \frac{h_0 (r_0 - r)}{r_0 (1-f)}, & r_f < r \leq r_0, \\*[1ex]
+	\displaystyle \frac{h_0 (r_0 - r)}{r_0 (1-f)}, & r_f < r \leq r_0 \\*[1ex]
 	0, & r > r_0
-\end{array} \right.
+\end{array} \right..
 \end{equation*}
 We are interested in the area $A$, volume $V$, and mean height $\bar{h}$ above the noise floor $h_n$.
 Since the noise floor will always intersect the seamount flank (i.e., $r_n > r_f$ for all $h_n < h_0$),
@@ -144,9 +144,9 @@ For the truncated parabolic seamount (Fig.~\ref{WWKS22_Fig_parabola}), the heigh
 \begin{equation*}
 h(r) = \left \{ \begin{array}{cl}
 	h_0, &	r \leq r_f \\*[1ex]
-	\displaystyle \frac{h_0}{1-f^2} \left [1 - \left (\frac{r}{r_0} \right )^2 \right ], & r_f < r \leq r_0, \\*[1ex]
+	\displaystyle \frac{h_0}{1-f^2} \left [1 - \left (\frac{r}{r_0} \right )^2 \right ], & r_f < r \leq r_0 \\*[1ex]
 	0, & r > r_0
-\end{array} \right.
+\end{array} \right..
 \end{equation*}
 Again, the intersection of the noise floor and the parabolic seamount flank yields the noise-floor
 radius
@@ -198,9 +198,9 @@ Hence, our general expression for the height of a truncated Gaussian seamount (F
 \begin{equation*}
 h(r) = \left \{ \begin{array}{cl}
 	h_0, &	r \leq r_f \\*[1ex]
-	\displaystyle h_0 e^{\frac{9}{2} \left [ f^2 - \left (\frac{r}{r_0} \right )^2 \right ]}, & r_f < r \leq r_0, \\*[1ex]
+	\displaystyle h_0 e^{\frac{9}{2} \left [ f^2 - \left (\frac{r}{r_0} \right )^2 \right ]}, & r_f < r \leq r_0 \\*[1ex]
 	0, & r > r_0
-\end{array} \right.
+\end{array} \right..
 \end{equation*}
 The intersection of the noise floor and the Gaussian seamount is obtained by equating $h(r_n) = h_n$,
 which yields a noise-floor radius of
@@ -245,7 +245,7 @@ V_g = \frac{2}{9} \pi r_0^2 h_0, \quad \bar{h}_g =  \frac{2}{9} h_0.
 $r_0$, but subject to a noise floor at $h_n$.  Truncation yields a top radius of $r_f$. Heavy line is $h(r)$.}
 \label{WWKS22_Fig_polynomial}
 \end{figure}
-One of the``unfortunate'' properties of the Gaussian is its slow asymptotic approach to zero. For this reason,
+One of the ``unfortunate'' properties of the Gaussian is its slow asymptotic approach to zero. For this reason,
 a polynomial model for a seamount shape that approximates the Gaussian curve but goes exactly to zero at the
 given radius $r_0$ may be used \citep[e.g.,~][]{KW2011}.  The radial shape for a unit height untruncated seamount
 of normalized radius $u = r/r_0$ is
@@ -259,7 +259,7 @@ h(r) = \left \{ \begin{array}{cl}
 	h_0, & r \leq r_f \\
 	\frac{h_0}{p(f)} p(r/r_0), & r_f < r \leq r_n \\
 	0, & r > r_0
-\end{array} \right.
+\end{array} \right..
 \end{equation*}
 Unlike the previous seamount shapes, the polynomial model has no analytic solution for the noise-floor
 radius satisfying $h(r_n) = h_n$.  Instead, we numerically solve this equality for $r_n$, which
@@ -540,7 +540,7 @@ To solve for the distal radius $r_d$ we need to equate $V_s$ with the equivalent
 Given that the distal triangle thickness and area\footnote{We assume that $h(r)$ from $h_c$ to zero may be approximated
 as a linear ramp.} are
 \begin{equation*}
-h_d(r) = h_c \left (1 - \frac{r - r_c}{r_d - r_c}\right ), \quad A_d = \frac{h_c}{2} (r_d - r_0)
+h_d(r) = h_c \left (1 - \frac{r - r_c}{r_d - r_c}\right ), \quad A_d = \frac{h_c}{2} (r_d - r_0),
 \end{equation*}
 we find its volume to be
 \begin{equation}
@@ -581,7 +581,7 @@ $V_s \rightarrow V_f-V^l_q$, we find $u_0 \rightarrow 0$.
 
 The above derivations assume the slide profile $h_s(r)$ only varies with radial position and is constant as a function
 of the azimuth within the slide sector. Alternatively, we may wish to have the slide start at the undeformed scarp height
-($h(r)$) for azimuth $\alpha_1$ and drop down to the final level ($h_s(r)$) over some azimuthal distance towards the mid-point in order
+$h(r)$ for azimuth $\alpha_1$ and drop down to the final level $h_s(r)$ over some azimuthal distance towards the mid-point in order
 to portray a more realistic, scalloped appearance. We model this azimuthal scaling function by
 \begin{equation*}
 s(\alpha) = s(\gamma) = 1 - \left |\gamma\right|^p,
@@ -593,7 +593,7 @@ which, for $p = 2$, yields a concave parabolic function. The normalized angle $\
 We can use the parameter $p \ge 2$ to increase the drop-off rate from the scarp toward the middle of the section.
 Now, the computed slide height will be a function of both radius and azimuth, i.e.,
 \begin{equation*}
-h_s(r, \alpha) = h(r) \left [1 - s(\alpha)\right ] + h_s(r) s(\alpha),
+h_s(r, \alpha) = h(r) \left [1 - s(\alpha)\right ] + h_s(r) s(\alpha).
 \end{equation*}
 When $p \rightarrow \infty$ then $s(\alpha) \rightarrow 1$ and we recover the original radial-variation-only slide height.
 For other values, see Figure~\ref{WWKS22_Fig_slide}c. For volume calculations we must now integrate $s(\alpha)$ over the azimuthal range,
@@ -700,7 +700,7 @@ that may be applied in seamount studies in seismically (and even bathymetrically
 \includegraphics[width=9cm]{pdf/WWKS22_Fig_rho-model.pdf}
 \caption{Predicted density curves converted from the median velocities in Fig.~\ref{WWKS22_Fig_vp-model} using three different
 velocity-density models \citep{B2005,LND70,CR1984}. Average densities derived from samples recovered from the deep drill holes
-in Hawaii \citep{JM2001} and the Azores \citep{H1979} are also shown.}
+in Hawaii \citep{JM2001} and the Azores \citep{H1979} are also shown. Envelopes represent robust $1-\sigma$ confidence bounds.}
 \label{WWKS22_Fig_rho-model}
 \end{figure}
 
