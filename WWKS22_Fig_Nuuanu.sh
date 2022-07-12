@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env -S bash -e
 #
 # Wessel, P., Watts, A. B., Kim, S.-S., and Sandwell, D. T., 2022
 #   Models for the Evolution of Seamount, Geophys. J. Int.
@@ -19,7 +19,6 @@ m=c
 f=0.1
 water=-5300
 dx=0.001
-#Slide=-S+a-20/120+h750/6000+d750+u0.05+p10
 Slide=-S+a-20/120+h750/6000+d300+v20+p10
 # Flexure due to redistribution
 echo 157.85W 21.55N 50 7000 > /tmp/oahu.txt
@@ -30,8 +29,6 @@ gmt grdflexure /tmp/load.nc -E25k -D3300/2650/1030 -G/tmp/flex.nc
 gmt begin ${dir}WWKS22_Fig_Nuuanu $1
 	gmt set GMT_GRAPHICS_DPU 600i FONT_ANNOT_PRIMARY 14p
 	gmt makecpt -Cgeo -T-10000/2000
-	#gmt grdcut $R /Users/pwessel/Downloads/mhi_mbsyn_bathytopo_50m_v21.nc -Gdata/oahu_dem.nc
-	#gmt grdcut @earth_relief_15s $R -Gdata/oahu_dem.nc
 	gmt grdview data/oahu_dem.nc -Qi -I+a70 -p50/20 -JZ2c -Y18c -B -N+glightgray
 	gmt colorbar -DJTC+r -Bxaf -By -p
 	# Nuuanu simulation

@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env -S bash -e
 # Support script for Jasper seamount density structure and gravity anomaly
 # We compute grids of various quantities over the Jasper area
-# It will be run (and takes 45 minutes) if the calc directory is missing
+# It will be run (and takes ~45 minutes) if the calc directory is missing
 
 mkdir -p calc
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env -S bash -e
 #
 # Wessel, P., Watts, A. B., Kim, S.-S., and Sandwell, D. T., 2022
 #   Models for the Evolution of Seamount, Geophys. J. Int.

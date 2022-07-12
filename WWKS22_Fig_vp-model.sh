@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env -S bash -e
 #
 # Wessel, P., Watts, A. B., Kim, S.-S., and Sandwell, D. T., 2022
 #   Models for the Evolution of Seamount, Geophys. J. Int.
@@ -16,21 +16,10 @@ if [ "X${1}" = "X" ]; then
 else
 	dir="${1}/"
 fi
-V2R=data/Brocher-2005-rho-v.txt
-function vztorz {	# Do the Broucher (2005) conversion
-	# $1 is the data set of v,z we want to convert to r,z
-	gmt sample1d ${V2R} -T$1 -o1,0 > /tmp/vr.txt
-	gmt convert -A /tmp/vr.txt $1 -o0,3
-}
-# Grid files via Tony Watts, March 2022
-#D=/Users/pwessel/Dropbox/UH/ACTIVE/PROJECTS/OXFORD2022/For_Paul
-#gmt grdtrack -G${D}/MGL1902_Line1_velocity.grd -E1.75/0/1.75/8 -o2,1 -s   | awk '{print $1, $2-1.5}' > data/emperor-1.txt
-#gmt grdtrack -G${D}/MGL1902_Line2_velocity.grd -E142.5/0/142.5/8 -o2,1 -s | awk '{print $1, $2-1.5}' > data/emperor-2.txt
 
-# Resample both v(z) and rho(z) finely (dz = 0.05 km)
-rm -f /tmp/txt_v /tmp/txt_r
+# Resample v(z) finely (dz = 0.05 km)
+rm -f /tmp/txt_v
 while read file; do
-	vztorz data/$file | gmt sample1d -N1 -T0.05 -Fl -o1,0,0 >> /tmp/txt_r
 	gmt sample1d data/$file -N1 -T0.05 -Fl -o1,0,0 >> /tmp/txt_v
 done < data/files.lis
 # Compute medians and MAD for 0.25 km bins
@@ -41,7 +30,6 @@ awk '{print $2+$3, $1}' median_v.txt | tail -r >> poly_v.txt
 
 #---------------------------------------------------------------------
 gmt begin ${dir}WWKS22_Fig_vp-model $1
-	# TL: Plot all vp(z) published curves
 	gmt subplot begin 1x2 -Fs8c/8c -A+jTR -Srl -Sct -M1p
 	# a) All velocity profiles
 	gmt subplot set 0
@@ -60,15 +48,11 @@ gmt begin ${dir}WWKS22_Fig_vp-model $1
 	gmt plot data/society.txt        -W1.5p,cyan    -l"Society Islands"
 	gmt plot data/tenerife.txt    -W1.5p,darkgreen  -l"Tenerife"
 	printf "0 7\n8 7\n" | gmt plot -W2p,4_2:0 -Bxaf+l"Velocity v@-p@- (km/s)" -Byaf+l"Depth (km)" -BWNrb
-	# TR: Plot the straight conversion of vp(z) to rho(z)
-
 	# b) Median velocity profile and confidence band
 	gmt subplot set 1
 	# Show the median vp(z) with 1-sigma bound
 	gmt plot  -R3/7.5/0.125/8 -JX8c/-8c poly_v.txt -Glightgray -l"1@~s@~ confidence"+jBL+o6p/1.2c
 	gmt plot median_v.txt -W2p -i1,0 -l"Median v@-p@-(z)"
-	# Fit of z^p fit to median v(z) with 1/MAD as weights
-	#gmt math -T0/7/0.1 T 7 DIV 0.4727 POW 4.0965 MUL 2.91 ADD = | gmt plot -W2p,red -i1,0
 	printf "0 7\n8 7\n" | gmt plot -W2p,4_2:0 -BwNbr -Bxaf+l"Velocity v@-p@- (km/s)"
 	gmt subplot end
 gmt end show

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env -S bash -e
 #
 # Wessel, P., Watts, A. B., Kim, S.-S., and Sandwell, D. T., 2022
 #   Models for the Evolution of Seamount, Geophys. J. Int.
@@ -16,21 +16,10 @@ if [ "X${1}" = "X" ]; then
 else
 	dir="${1}/"
 fi
-V2R=data/Brocher-2005-rho-v.txt
-function vztorz {	# Do the Broucher (2005) conversion
-	# $1 is the data set of v,z we want to convert to r,z
-	gmt sample1d ${V2R} -T$1 -o1,0 > /tmp/vr.txt
-	gmt convert -A /tmp/vr.txt $1 -o0,3
-}
-# Grid files via Tony Watts, March 2022
-#D=/Users/pwessel/Dropbox/UH/ACTIVE/PROJECTS/OXFORD2022/For_Paul
-#gmt grdtrack -G${D}/MGL1902_Line1_velocity.grd -E1.75/0/1.75/8 -o2,1 -s   | awk '{print $1, $2-1.5}' > data/emperor-1.txt
-#gmt grdtrack -G${D}/MGL1902_Line2_velocity.grd -E142.5/0/142.5/8 -o2,1 -s | awk '{print $1, $2-1.5}' > data/emperor-2.txt
 
-# Resample both v(z) and rho(z) finely (dz = 0.05 km)
-rm -f /tmp/txt_v /tmp/txt_r
+# Resample v(z) finely (dz = 0.05 km)
+rm -f /tmp/txt_v
 while read file; do
-	vztorz data/$file | gmt sample1d -N1 -T0.05 -Fl -o1,0,0 >> /tmp/txt_r
 	gmt sample1d data/$file -N1 -T0.05 -Fl -o1,0,0 >> /tmp/txt_v
 done < data/files.lis
 # Compute medians and MAD for 0.25 km bins
@@ -38,7 +27,7 @@ gmt blockmedian -R0/10/0/10 -I0.25/10 -r -E /tmp/txt_v -o0,2,3 > median_v.txt
 # Because errors are in x, build polygons with 1-s confidence bands
 awk '{print $2-$3, $1}' median_v.txt > poly_v.txt
 awk '{print $2+$3, $1}' median_v.txt | tail -r >> poly_v.txt
-# Crate density vs depth model
+# Crate density vs depth models
 bash make_cr_model.sh
 
 gmt begin ${dir}WWKS22_Fig_rho-model $1
@@ -73,8 +62,9 @@ gmt begin ${dir}WWKS22_Fig_rho-model $1
 	gmt plot data/moore.txt -Sc4p -Gred -E+p0.5p -l"Moore (2001)"
 	gmt plot data/hyndman.txt -Sc4p -Gblue -E+p0.5p -l"Hyndman et al (1979)"
 	#grep -v '^#' /Users/pwessel/Dropbox/UH/ACTIVE/PROJECTS/OXFORD2022/EMPERORS/Site_*_properties.txt | awk '{print $6, 0.001*$3}' | gmt plot -Sc2p -Gorange -l"197 & 330"
-	gmt end show
+gmt end show
 
+# Clean up and remove temp files
 rm -f median_v.txt poly_v.txt
 rm -f CR1984_model.txt B2005_model.txt ND1970_model.txt CR1984_zrw.txt
 rm -f CR1984_conf.txt B2005_conf.txt ND1970_conf.txt
