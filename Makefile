@@ -79,7 +79,7 @@ recalc:
 	rm -rf calc
 
 clean:
-	rm -f WWKS22*.{aux,idx,ilg,blg,bbl,ind,log,lof,lot,toc,out,dvi}
+	rm -f WWKS22*.{aux,idx,ilg,blg,bbl,ind,log,lof,lot,toc,out,dvi,tar}
 
 spotless:	clean
 	rm -f WWKS22_Fig_*.png WWKS22_Fig_*.jpg WWKS22_Fig_*.pdf WWKS22.pdf gmt.history
