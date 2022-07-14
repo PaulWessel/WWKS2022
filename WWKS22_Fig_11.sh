@@ -29,7 +29,7 @@ awk '{print $2-$3, $1}' median_v.txt > poly_v.txt
 awk '{print $2+$3, $1}' median_v.txt | tail -r >> poly_v.txt
 
 #---------------------------------------------------------------------
-gmt begin ${dir}WWKS22_Fig_vp-model $1
+gmt begin ${dir}WWKS22_Fig_11 $1
 	gmt subplot begin 1x2 -Fs8c/8c -A+jTR -Srl -Sct -M1p
 	# a) All velocity profiles
 	gmt subplot set 0

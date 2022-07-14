@@ -15,7 +15,7 @@ if [ "X${1}" = "X" ]; then
 else
 	dir="${1}/"
 fi
-gmt begin ${dir}WWKS22_Fig_increments $1
+gmt begin ${dir}WWKS22_Fig_08 $1
 	gmt set GMT_THEME cookbook
 	gmt set FONT_ANNOT_PRIMARY 9p
 	echo "100	75	50	5000	1	0" > t.txt

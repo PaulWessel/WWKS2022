@@ -14,7 +14,7 @@ if [ "X${1}" = "X" ]; then
 else
 	dir="${1}/"
 fi
-gmt begin ${dir}WWKS22_Fig_smt $1
+gmt begin ${dir}WWKS22_Fig_01 $1
 	gmt set GMT_THEME cookbook
 	
 	# one of the Magellan seamounts 

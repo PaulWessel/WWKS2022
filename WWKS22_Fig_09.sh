@@ -15,7 +15,7 @@ else
 	dir="${1}/"
 fi
 
-gmt begin ${dir}WWKS22_Fig_slide $1
+gmt begin ${dir}WWKS22_Fig_09 $1
 	gmt set GMT_THEME cookbook
 	gmt set FONT_ANNOT_PRIMARY 9p,Times-Italic
 	gmt set FONT_LABEL 12p,Times-Italic

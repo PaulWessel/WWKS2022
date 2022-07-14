@@ -30,7 +30,7 @@ awk '{print $2+$3, $1}' median_v.txt | tail -r >> poly_v.txt
 # Crate density vs depth models
 bash make_cr_model.sh
 
-gmt begin ${dir}WWKS22_Fig_rho-model $1
+gmt begin ${dir}WWKS22_Fig_12 $1
 	# BR: Show the median rho(z) with 1-sigma bound, and two models
 	gmt set PS_LINE_CAP round 
 	gmt plot -R2.0/3.13/0.125/8 -JX8c/-8c B2005_conf.txt -i1,0 -Glightblue@50

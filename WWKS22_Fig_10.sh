@@ -26,7 +26,7 @@ gmt grdseamount -R161W/154:30W/18:30N/25N -I0.01 /tmp/oahu.txt -C${m} -F${f} -G/
 gmt grdseamount -R161W/154:30W/18:30N/25N -I0.01 /tmp/oahu.txt -C${m} -F${f} -G/tmp/after.nc ${Slide}
 gmt grdmath /tmp/after.nc /tmp/before.nc SUB = /tmp/load.nc
 gmt grdflexure /tmp/load.nc -E25k -D3300/2650/1030 -G/tmp/flex.nc 
-gmt begin ${dir}WWKS22_Fig_Nuuanu $1 E600
+gmt begin ${dir}WWKS22_Fig_10 $1 E600
 	gmt set GMT_GRAPHICS_DPU 600i FONT_ANNOT_PRIMARY 14p
 	gmt makecpt -Cgeo -T-10000/2000
 	gmt grdview data/oahu_dem.nc -Qi -I+a70 -p50/20 -JZ2c -Y18c -B -N+glightgray

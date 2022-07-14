@@ -15,11 +15,11 @@ else
 	dir="${1}/"
 fi
 echo 0 0 50 6000 | gmt grdseamount -H6000/2500/3000+p1+d200 -Kmodel.grd -Cc -F0.2
-gmt begin ${dir}WWKS22_Fig_densitymodel $1
+gmt begin ${dir}WWKS22_Fig_13 $1
 	gmt set FONT_ANNOT_PRIMARY 9p FONT_LABEL 10p
 	gmt makecpt -Cbilbao -T2500/3000 --COLOR_NAN=white
 	# Plot density reference model above
-	gmt grdimage model.grd -R0/1.15/0/1.1 -JX8.4c/3c -Bxaf+l"Normalized radial distance, @%6%r@%%" -Byafg1+l"Normalized height, @%6%h(r)@%%"
+	gmt grdimage model.grd -R0/1.15/0/1.1 -JX8.4c/3.6c -Bxaf+l"Normalized radial distance, @%6%r@%%" -Byafg1+l"Normalized height, @%6%h(r)@%%"
 	printf "0 1\n 0.2 1\n1 0\n" | gmt plot -W0.25p
 	z=0.5
 	y=$(gmt math -Q 1 $z ADD 2 DIV =)
@@ -45,6 +45,6 @@ gmt begin ${dir}WWKS22_Fig_densitymodel $1
 	0.7	$z BL Outside seamount
 	0.7	$z TL Inside seamount
 	EOF
-	gmt colorbar -DJBC+w80%/0.25c -Bx -By+l"kg m@+-3@+"
+	gmt colorbar -DJTC+w80%/0.25c+o-14p/6p -Bx -By+l"kg m@+-3@+"
 	rm -f model.grd
 gmt end show

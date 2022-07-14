@@ -41,13 +41,20 @@ PDFtmp= $(FIG:.sh=.pdf)
 PDF= $(addprefix pdf/, $(PDFtmp))
 PNGtmp= $(FIG:.sh=.png)
 PNG= $(addprefix png/, $(PNGtmp))
+JPGtmp= $(FIG:.sh=.jpg)
+JPG= $(addprefix jpg/, $(JPGtmp))
 
-paper:	WWKS22.pdf pdf png
+paper:	WWKS22.pdf pdf png jpg
 		open WWKS22.pdf
 
 png:	$(PNG)
 
 pdf:	$(PDF)
+
+jpg:	$(JPG)
+
+jpg/%.jpg: %.sh
+	bash $*.sh jpg; rm -f gmt.conf gmt.history
 
 png/%.png: %.sh
 	bash $*.sh png; rm -f gmt.conf gmt.history

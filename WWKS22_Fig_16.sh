@@ -92,8 +92,8 @@ gmt begin ${dir}WWKS22_Fig_16 $1
 		echo "SW to NE" | gmt text -F+f10p+cTL+jTL -Dj6p/32p
 		# TOPO
 		gmt grdmath /tmp/new.grd 1000 DIV = /tmp/new_km.grd
-		gmt grdtrack -G/tmp/new_km.grd -E${w}/${s}/${e}/${n}+d | gmt plot -i2,3 -L+yb -Ggray -l"Relief" -R0/48/-4.5/0 -c
+		gmt grdtrack -G/tmp/new_km.grd -E${w}/${s}/${e}/${n}+d | gmt plot -i2,3 -L+yb -Ggray -l"Relief" -R0/48/-4.5/0 -Bxaf+u" km" -Byaf+l"Depth (km)" -BWSnr -c
 		gmt math -T0/50/10 T 0.25 50 DIV MUL 4.27 SUB = | gmt plot -W0.5p,2_2:0 -l"Regional"
-		echo "SW to NE" | gmt text -F+f10p+cTL+jTL -Dj6p/32p -Bxaf+u" km" -Byaf+l"Depth (km)" -BWsnr
+		echo "SW to NE" | gmt text -F+f10p+cTL+jTL -Dj6p/32p
 	gmt subplot end
 gmt end show

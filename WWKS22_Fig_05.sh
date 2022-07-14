@@ -14,7 +14,7 @@ if [ "X${1}" = "X" ]; then
 else
 	dir="${1}/"
 fi
-gmt begin ${dir}WWKS22_Fig_polynomial $1
+gmt begin ${dir}WWKS22_Fig_05 $1
 	gmt set MAP_VECTOR_SHAPE 0.5
 	echo "0	1" > /tmp/tmp
 	echo "1	1" >> /tmp/tmp

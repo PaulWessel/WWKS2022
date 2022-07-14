@@ -14,7 +14,7 @@ if [ "X${1}" = "X" ]; then
 else
 	dir="${1}/"
 fi
-gmt begin ${dir}WWKS22_Fig_disc $1
+gmt begin ${dir}WWKS22_Fig_06 $1
 	gmt set MAP_VECTOR_SHAPE 0.5
 	cat <<- EOF > /tmp/tmp
 	0	1
