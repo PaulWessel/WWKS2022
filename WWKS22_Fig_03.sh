@@ -24,6 +24,7 @@ gmt begin ${dir}WWKS22_Fig_03 $1
 	gmt plot -R-5/5/0/1.5 -JX8.4c/1.6c -Glightgray /tmp/body
 	gmt plot -W2p /tmp/tmp
 	gmt plot -W0.5p,- /tmp/line
+	echo -0.4 1.10 | gmt plot -Ss8p -Gwhite
 	gmt plot -Sv0.1i+e+s -Gblack -W0.5p -N <<- EOF
 	-5	0	5	0
 	0	0	0	1.5
