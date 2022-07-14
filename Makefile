@@ -88,5 +88,5 @@ wipe:	spotless
 
 archive:
 	COPYFILE_DISABLE=1 tar cvf WWKS22.tar *.tex *.bib natbibspacing.sty \
-	orcidlink.sty gji.bst gji.cls gji_extra.sty apalike-doi.bst
-	pdf/WWKS22_Fig_0?.pdf pdf/WWKS22_Fig_1[123].pdf jpg/WWKS22_Fig_1[045].jpg
+	orcidlink.sty gji.bst gji.cls gji_extra.sty timet.sty apalike-doi.bst \
+	pdf/WWKS22_Fig_0?.pdf pdf/WWKS22_Fig_1[1236].pdf jpg/WWKS22_Fig_1[045].jpg
