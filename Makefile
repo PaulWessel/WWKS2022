@@ -2,7 +2,7 @@
 # Makefile for
 #
 # Wessel, P., Watts, A. B., Kim, S.-S., and Sandwell, D. T., 2022
-#   Models for the Evolution of Seamount, Geophys. J. Int.
+#   Models for the Evolution of Seamounts, Geophys. J. Int.
 #
 # Extra texlive packages needed on Macports to run this
 # texlive-bibtex-extra texlive-latex-extra texlive-pictures texlive-plain-generic
@@ -27,13 +27,14 @@ help::
 #!wipe          : As spotless, but also delete the calc directory
 #!
 #---------------------------------------------------------------------------
-FIG=	WWKS22_Fig_Gaussian.sh WWKS22_Fig_cone.sh WWKS22_Fig_disc.sh \
-		WWKS22_Fig_parabola.sh WWKS22_Fig_flux.sh WWKS22_Fig_increments.sh \
-		WWKS22_Fig_vp-model.sh WWKS22_Fig_rho-model.sh WWKS22_Fig_polynomial.sh \
-		WWKS22_Fig_smt.sh WWKS22_Fig_densitymodel.sh WWKS22_Fig_slide.sh \
-		WWKS22_Fig_Nuuanu.sh WWKS22_Fig_Jasper.sh WWKS22_Fig_prisms.sh
+FIG=	WWKS22_Fig_01.sh WWKS22_Fig_02.sh WWKS22_Fig_03.sh \
+		WWKS22_Fig_04.sh WWKS22_Fig_05.sh WWKS22_Fig_06.sh \
+		WWKS22_Fig_07.sh WWKS22_Fig_08.sh WWKS22_Fig_09.sh \
+		WWKS22_Fig_10.sh WWKS22_Fig_11.sh WWKS22_Fig_12.sh \
+		WWKS22_Fig_13.sh WWKS22_Fig_14.sh WWKS22_Fig_15.sh \
+		WWKS22_Fig_16.sh
 
-# Note: WWKS22_Fig_Jasper.sh starts from scratch and takes 40 minutes to
+# Note: WWKS22_Fig_15.sh starts from scratch and takes 40 minutes to
 #		complete if you delete the calc directory after it already exists
 
 PDFtmp= $(FIG:.sh=.pdf)
@@ -54,7 +55,7 @@ png/%.png: %.sh
 pdf/%.pdf: %.sh
 	bash $*.sh pdf; rm -f gmt.conf gmt.history
 
-WWKS22_Fig_Jasper.sh:	WWKS22_Jasper_calc.sh
+WWKS22_Fig_15.sh:	WWKS22_Jasper_calc.sh
 
 .FORCE:
 
@@ -79,4 +80,6 @@ wipe:	spotless
 	rm -rf calc
 
 archive:
-	COPYFILE_DISABLE=1 tar cvf WWKS22.tar *.tex *.bib natbibspacing.sty orcidlink.sty gji.bst gji.cls gji_extra.sty apalike-doi.bst
+	COPYFILE_DISABLE=1 tar cvf WWKS22.tar *.tex *.bib natbibspacing.sty \
+	orcidlink.sty gji.bst gji.cls gji_extra.sty apalike-doi.bst
+	pdf/WWKS22_Fig_??.pdf

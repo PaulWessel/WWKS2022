@@ -27,7 +27,7 @@ gmt gravprisms -S/tmp/prismfig_smt.grd -D/tmp/prismfig_averho.grd -C+w/tmp/prism
 # 1c. Make variable prism densities
 gmt gravprisms -S/tmp/prismfig_smt.grd -H7/2400/3030+p0.8 -C+w/tmp/prismfig_prisms3.txt+q+z0.2
 # Make plots
-gmt begin ${dir}WWKS22_Fig_prisms $1
+gmt begin ${dir}WWKS22_Fig_prisms $1 E600
 	gmt set FONT_TAG 14p
  	gmt makecpt -Cturbo -I -T2400/2950
 	gmt subplot begin 3x1 -Fs8.4c/3.5c -A+o0.2c/-1.3c -M1p
