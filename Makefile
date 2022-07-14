@@ -22,8 +22,9 @@ help::
 #!paper         : Build figures and then PDF for the paper
 #!pdf           : Just build or update PDF figures for the paper
 #!png           : Just build or update PNG figures for the paper
-#!clean         : Clean up and remove created files of all types, except calc
-#!spotless      : As clean, but also delete all created PDF and PNG figures
+#!jpg           : Just build or update JPG figures for the paper
+#!clean         : Clean up and remove created Latex files of all types, except figs and calc
+#!spotless      : As clean, but also delete all created PDF, JPG and PNG figures
 #!wipe          : As spotless, but also delete the calc directory
 #!
 #---------------------------------------------------------------------------
@@ -63,6 +64,7 @@ pdf/%.pdf: %.sh
 	bash $*.sh pdf; rm -f gmt.conf gmt.history
 
 WWKS22_Fig_15.sh:	WWKS22_Jasper_calc.sh
+WWKS22_Fig_16.sh:	WWKS22_Jasper_calc.sh
 
 .FORCE:
 
@@ -80,8 +82,8 @@ clean:
 	rm -f WWKS22*.{aux,idx,ilg,blg,bbl,ind,log,lof,lot,toc,out,dvi}
 
 spotless:	clean
-	rm -f WWKS22_Fig_*.png WWKS22_Fig_*.pdf WWKS22.pdf gmt.history
-	rm -rf png pdf
+	rm -f WWKS22_Fig_*.png WWKS22_Fig_*.jpg WWKS22_Fig_*.pdf WWKS22.pdf gmt.history
+	rm -rf png pdf jpg
 
 wipe:	spotless
 	rm -rf calc
