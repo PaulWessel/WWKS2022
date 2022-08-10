@@ -29,7 +29,7 @@ This folder also contains the files provided by GJI to build the manuscript
 using their template (`gji.cls`, `gji_extra.sty` and `times.sty`).
 
 The figures of the article can are built by GMT and will be written
-to the pdf and png directories. They are created by the makefile and
+to the pdf and png directories. They are created by the Makefile and
 may use the data in the data directory.
 
 ## How to build the manuscript
